@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>alistair</title>
+</head>
+
+<body>
+<h2>Self-defined: Web-based version control software</h2>
+<p>Group student projects, such as that in
+<a href="http://www-course.cs.york.ac.uk/swi/">SWI</a>, can suffer from problems 
+of version control (<a href="#wilson1991">Wilson, 1991</a>)- different students making incompatible changes to files. 
+The objective of this project would be to build a web-based tool to be used to 
+overcome this. There are a number of existing tools and this project will build 
+on the literature (e.g. <a href="http://cvs.nongnu.org/">CVS</a>,
+<a href="http://subversion.apache.org/">SVN</a>, SCCS: <a href="#rochkind1997">Rochkind, 1975</a>).</p>
+<p>There are different aspects and approaches to this kind of system. A simple 
+approach is to assign roles to different team members and to assign different 
+corresponding files to them. Thus, for instance, one member might be working on 
+the front-end of a software system. They will have one or more files which 
+constitute that module and they alone will be allowed write-access to those 
+files. Such a system requires user authentication and management of the users&#39; 
+capabilities. An alternative approach is to keep track of the changes to files 
+(deltas) so that any version can be recreated at any time. If different people 
+are allowed to make simultaneous changes, though, they may be incompatible. In 
+that case it may be necessary to have a check-in and -out mechanism to prevent 
+parallel access.</p>
+<p>One of the first objectives of this project would be to ascertain what kind 
+of system would be appropriate for us in SWI.</p>
+<p>The plan is specifically to build a web-based system.&nbsp; The advantages of a web-based system are:</p>
+<ul>
+	<li>There is no need for software installation.</li>
+	<li>Users can access it from anywhere.</li>
+	<li>It will be easy to use.</li>
+</ul>
+<h3>Plan</h3>
+<ol>
+	<li>Literature review: finding out about existing systems and approaches.</li>
+	<li>Requirements analysis - mainly with students.</li>
+	<li>Initial design.</li>
+	<li>Prototype implementation and testing.</li>
+	<li>Re-design.</li>
+	<li>High-fidelity prototype implementation.</li>
+	<li>Evaluation</li>
+	<li>Write-up</li>
+</ol>
+<p>The high-fidelity prototype will be built using PHP and mySQL with JavaScript and possibly 
+Ajax, as appropriate.</p>
+<h3>References</h3>
+<p><a name="rochkind1997"></a>Rochkind, Marc J. (1975),
+<a href="http://basepath.com/aup/talks/SCCS-Slideshow.pdf" rel="nofollow">
+&quot;The Source Code Control System&quot;</a>, <i>IEEE Transactions onSoftware Engineering</i> 
+<b>SE-1</b> (4): 364–370</p>
+<p>
+<a name="wilson1991"></a>Wilson, P. (1991). <i>Computer Supported Cooperative Work: An Introduction</i> (1 
+ed.). Oxford: Intellect Books.</p>
+</body>
+
+</html>

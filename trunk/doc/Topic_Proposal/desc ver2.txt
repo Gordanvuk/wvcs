@@ -1,0 +1,26 @@
+The application could be described as "A web-based revision controlling and workload allocating aid application for file based work"
+This project is not concentrate on software engineering, and may have many drawbacks in comparing with traditional revision control softwares. However, this project will work out a easy to use web bases interface with extensive applicability in any file based work, such as imaging editing, sound processing, report writing, etc.
+
+Here are some useful references:
+
+
+
+1. Concurrent Versions System (CVS), by The CVS Team
+# the most widely used software based open-source collaboration system, support by lots of IDEs, but only focus on software engineering
+
+I have attached a initial functional idea map of this project's objectives.
+
+
+可以申请做交叉overlap，需要leader审批，并自动添加进备注
+可以manage task，
+1. 设置brench tasks with relationship
+2. 更改设置，如task名，due，allocate，
+
+创建完 会显示分配表 每个组员可以看到
+
+组长可以看到所有人的进度
+task还有1/3时间到期时
+
+
+最后 combine task
+merge operation triggered

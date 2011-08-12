@@ -1,0 +1,23 @@
+Title:
+Web-based application for coursework controlling for students
+
+BackGround:
+As common know in the department, students often do their coursework in a traditional way - create, change, save and backup regularly. When he/she need to switch their work between PC in lab and their own laptop, they could only use traditional way to copy-paste via a usb disk, or send email to themselves in a PC, and receive it in another PC. After times of these, they may feel confusing: Which file is my latest version of coursework? or I did a wrong change, which file contains my pervious correct section?
+For a group coursework, if more than one people working on a same file, when they finish their own changes and ready to do combination, they may found too many redundancy they did, also some information all of the group may missing due to have not effective way in controlling division of works. 
+
+Objective:
+Build a web-based application for user to control their changes, versions and division of works for individual and group coursework. This application can also use for transfer works between different PCs. To avoid wasting time in adapt to/study how to use the application, it should be intuitive and easy to use, HTML5[888888] and Ajax[99999999] would be used in providing some posiable features in implementation. 
+Users can working on different courseworks/projects within the application. They can upload new version of works to any project any time they like, with suitable description of changes. The web application will keep all the versions of their works with different description, allow users to track back their work easier. They can set privilege/permission to specified people (e.g. group member) to work with them together.
+After programming of the application, do testing and evaluation with users.
+
+Reference:
+
+
+W3C
+HTML5 - A vocabulary and associated APIs for HTML and XHTML
+http://www.w3.org/TR/html5/
+
+w3schools.com
+HTML5 Tutorial - <input> Tag
+http://www.w3schools.com/html5/tag_input.asp
+

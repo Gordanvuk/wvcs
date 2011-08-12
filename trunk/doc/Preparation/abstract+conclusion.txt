@@ -1,0 +1,8 @@
+My topic is "The see-Puck: A Platform for Exploring Human-Robot Relationships"
+
+Abstract
+
+The see-Puck is a top-mounted LED-display for an open robot platform, the e-Puck. It was the result of an on-going process where we have been exploring the future potential of embodied communicating agents. The see-Puck contains two printed circuit boards, 148 LEDs and two parts of software, and it has been demonstrated by GlowBots, allow user to interact directly.
+
+Conclusion
+The see-Puck is a module for the e-Puck with a top-mounted LED-display, using two printed circuit boards, 148 LEDs and two parts of software. In the paper, GlowBots as an example shows how the design implemented. In the hardware part, the top layer matrix board has 148 LEDs in a rounded 14 by 14 matrix, uses for display graphical commands; the controller board holds its own microcontroller and firmware. In software, library consisting of higher level commands that are sent to the see-Puck module from the e-Puck controller board, include graphical commands; firmware consists of two subsystems: the communication and the graphical subsystems, uses for interrupt and initialization of the graphics subsystem. At this stage, it uses IR for communication. We are looking forward to finding a new way of communication that can over come the drawbacks of IR

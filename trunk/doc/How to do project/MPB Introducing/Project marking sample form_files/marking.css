@@ -1,0 +1,91 @@
+﻿legend {  font-size: large; font-weight: bold}
+.red {  color: #FF0000}
+.redCentred {  color: #FF0000; text-align: center}
+.deleted {text-decoration: line-through;}
+.bigred {
+	border-style: groove;
+	font-size: large;
+	color: #FF0000;
+	margin-left: 10em;
+	margin-right: 10em;
+	background-color: #FFFFFF;
+}
+#top {
+   margin: 20px 20px;
+   padding: 0px 10px 10px;
+   height: 50px;
+   }
+#left {
+   position: absolute;
+   left: 10px;
+   top: 170px;
+   width: 200px;
+   }
+#center {
+   background: #FFFFFF;
+   margin-top: 0;
+; margin-left: 220px
+; margin-right: 10px
+   }
+#right {
+   position: absolute;
+   right: 10px;
+   top: 170px;
+   width: 200px;
+   }.small {  font-size: small}
+.xsmall {  font-size: x-small}
+h1 {  text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif}
+h2 {  font-family: Verdana, Arial, Helvetica, sans-serif}
+.BEng {  background-color: #99FFFF}
+.MEng {  background-color: #33ff99}
+.MMath {  background-color: #0099FF}
+.MScSCSE { background-color: #99FF33}
+.MScSWE {
+	background-color: #FFCC66
+}
+.ITDip { background-color: #FFC4D7 }
+.SCSEDip { background-color: #FFFF99}
+.SWEDip { background-color: #FFFF99}
+.MScHCIT { background-color:#C9C7A6}
+.mark {
+	padding-left: 10;
+	padding-right: 10px;
+}
+.reditalic {  padding-left : 10; font-style : italic; color: #FF0000}
+.remarks {  background-color: #EAEAEA; font-family: Verdana, Arial, Helvetica, sans-serif; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; border-style: solid; border-top-width: thin; border-right-width: thin; border-bottom-width: thin; border-left-width: thin; font-size: small}
+.bigbold {  font-size: large; font-weight: bold}
+.underlined {  text-decoration: underline}
+.fail {
+	font-weight: bold;
+	color: #FF0000;
+	padding-right: 10px;
+}
+.MScIT { background-color: #FFC4D7 }
+.MScGTC {
+	background-color: #A7B7C7
+}
+.MScNC {  background-color: #C9AEFF}
+.boxed {  text-align: center; width: auto; border: thin #000099 solid}
+.whitebox {  text-align: center; width: auto; border: thin #000099 solid; background-color: #FFFFFF }
+.centred {
+	text-align: center;
+}
+.small {
+	font-size: small;
+}
+.deleted {
+	text-decoration: line-through;
+}
+.MScComp {
+	background-color: #ffff66;
+}
+.indent {
+	text-indent: -30px;
+	padding-left: 30px;
+}
+.debug {
+	color: #FF9933;
+}
+.MScSIIT {
+	background-color: #CC99FF;
+}
