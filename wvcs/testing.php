@@ -10,13 +10,13 @@ include 'style/header.php';
           <div class="clearfix">
             <label for="xlInput"><?php echo $system_name_short;?> ID</label>
             <div class="input">
-              <input class="xlarge" id="xlInput" name="xlInput" size="30" type="text">
+              <input class="xlarge" id="id" name="id" size="30" type="text">
             </div>
           </div><!-- /clearfix -->
           <div class="clearfix">
             <label for="xlInput">Password</label>
             <div class="input">
-              <input class="xlarge" id="xlInput" name="xlInput" size="30" type="text">
+              <input class="xlarge" id="password" name="password" size="30" type="password">
             </div>
           </div><!-- /clearfix -->
           <div class="clearfix">
