@@ -10,4 +10,4 @@
 </body>
 
 </html>
-<!--end header-->
+<!--/footer-->
