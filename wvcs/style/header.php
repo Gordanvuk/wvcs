@@ -1,3 +1,4 @@
+<?php include 'libraries/style.lib.php';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!--header-->
@@ -12,5 +13,21 @@
 <title>WVCS 1.0</title>
 </head>
 <body>
-
+<div class="topbar">
+	<div class="fill">
+		<div class="container">
+			<h3><a href="#">WVCS 1.0</a></h3>
+			<ul>
+				<li<?php active('summary');?>><a href="#">Summary</a></li>
+				<li<?php active('project');?>><a href="#">Group Projects</a></li>
+			</ul>
+			<form action=""><input type="text" placeholder="Search"></form>
+			<ul class="nav secondary-nav">
+				<li<?php active('private');?>><a href="#">My Private Projects</a></li>
+				<li<?php active('message');?>><a href="#">My Messages</a></li>
+				<li><a href="#">Log out</a></li>
+			</ul>
+		</div>
+	</div><!-- /fill -->
+</div><!-- /topbar -->
 <!--end header-->
