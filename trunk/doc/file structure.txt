@@ -1,0 +1,11 @@
+style/bootstrap-1.1.1.css
+style/application.js
+open source project: Bootstrap, from Twitter, CSS layout http://twitter.github.com/bootstrap/
+
+style/html5.js
+open source solution of the latest HTML5 JavaScript shim for IE to recognise and style the HTML5 elements
+http://code.google.com/p/html5shim/
+
+prettify/
+source code highlight library under Apache License 2.0
+http://code.google.com/p/google-code-prettify/
