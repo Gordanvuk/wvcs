@@ -9,15 +9,15 @@
 		<meta name="keywords" content="Version Control, Cloud, Task-oriented, Project, Teamwork" />
 		<meta name="author" content="Sheng Yu, sy595@cs.york.ac.uk" />
 		<meta name="description" content="WVCS 1.0; Working in the Cloud: Web-based Version Control System for Task-oriented Group and Individual Projects">
-		<!-- Le HTML5 shim, for IE6-8 support of HTML elements --> 
-		<!--[if lt IE 9]>
-			<script src="style/html5.js"></script>
-		<![endif]--> 
 		<link rel="stylesheet" type="text/css" href="style/bootstrap-1.1.1.css" />
 		<link rel="stylesheet" type="text/css" href="style/common.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
 		<script type="text/javascript" src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
 		<script type="text/javascript" src="style/application.js"></script>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements --> 
+		<!--[if lt IE 9]>
+			<script src="style/html5.js"></script>
+		<![endif]--> 
 		<title><?php page_title('html');?></title>
 	</head>
 	<body>
