@@ -11,6 +11,8 @@ $administrator_email = 'sy595@student.cs.york.ac.uk';
 
 //system name
 $system_name = 'Web-based Version Control System';
+$system_name_short = 'WVCS';
+$system_version = '1.0';
 
 //default time zone
 $time_zone_default = 0;
