@@ -11,17 +11,19 @@
 		<meta name="description" content="WVCS 1.0; Working in the Cloud: Web-based Version Control System for Task-oriented Group and Individual Projects">
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements --> 
 		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="style/html5.js"></script>
 		<![endif]--> 
 		<link rel="stylesheet" type="text/css" href="style/bootstrap-1.1.1.css" />
 		<link rel="stylesheet" type="text/css" href="style/common.css" />
-		<title>WVCS 1.0</title>
+		<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script> 
+		<script src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
+		<title><?php page_title('html');?></title>
 	</head>
 	<body>
 		<div class="topbar">
 			<div class="fill">
 				<div class="container">
-					<h3><a href="#">WVCS 1.0</a></h3>
+					<h3><a href="#"><?php echo $system_name_short.' '.$system_version;?></a></h3>
 					<ul>
 						<li<?php active('summary');?>><a href="#">Summary</a></li>
 						<li<?php active('project');?>><a href="#">Group Projects</a></li>
@@ -40,7 +42,13 @@
 							</ul>
 						</li>
 					</ul>
-				</div>
+				</div><!-- /container -->
 			</div><!-- /fill -->
 		</div><!-- /topbar -->
+		<div class="container">
+		<div class="page-header">
+			<h1><?php page_title('main');?> <small><?php page_title('sub');?></small></h1>
+		</div>
+		</div><!-- /container -->
+		<div class="container">
 <!--end header-->
