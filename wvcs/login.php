@@ -1,5 +1,6 @@
 <?php
 include 'style/header.php';
+include 'libraries/login.lib.php';
 ?>
 <div class="row login">
 <div class="span4 columns">latest news</div>
@@ -7,16 +8,16 @@ include 'style/header.php';
 	<form action="goto.php" method="post">
         <fieldset>
           <legend>Sign in <?php echo $system_name_short;?></legend>
-          <div class="clearfix">
+          <div class="clearfix<?php login_error_hl();?>">
             <label for="xlInput"><?php echo $system_name_short;?> ID</label>
             <div class="input">
-              <input class="xlarge" id="id" name="id" size="30" type="text">
+              <input class="xlarge" id="id" name="id" size="50" type="text" /><?php login_id();?>
             </div>
           </div><!-- /clearfix -->
-          <div class="clearfix">
+          <div class="clearfix<?php login_error_hl();?>">
             <label for="xlInput">Password</label>
             <div class="input">
-              <input class="xlarge" id="password" name="password" size="30" type="password">
+              <input class="xlarge" id="password" name="password" size="30" type="password" /><?php login_pw();?>
             </div>
           </div><!-- /clearfix -->
           <div class="clearfix">
@@ -26,14 +27,14 @@ include 'style/header.php';
                 <li>
                   <label>
                     <input type="checkbox" name="optionsCheckboxes" value="option1">
-                    <span>Remember me</span>
+                    <span>Remember me</span>&nbsp;&nbsp;&nbsp;<a href="mailto: <?php echo $administrator_email;?>">Forgot login details?</a>
                   </label>
                 </li>
               </ul>
             </div>
           </div><!-- /clearfix -->
           <div class="actions">
-            <button type="submit" class="btn primary">Save Changes</button>&nbsp;<button type="reset" class="btn">Cancel</button>
+            <button type="submit" class="btn large primary">Sign in</button>&nbsp;<button type="reset" class="btn large">Cancel</button>
           </div>
         </fieldset>
       </form>

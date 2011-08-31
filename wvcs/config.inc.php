@@ -7,7 +7,7 @@ $db_username_write = 'root';
 $db_password_write = '';
 
 //email of administrator, use for receive error message, and for "from" label on email sends to user
-$administrator_email = 'sy595@student.cs.york.ac.uk';
+$administrator_email = 'sy595@cs.york.ac.uk';
 
 //system name
 $system_name = 'Web-based Version Control System';

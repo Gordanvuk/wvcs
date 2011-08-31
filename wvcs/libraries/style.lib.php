@@ -68,3 +68,4 @@ function page_title($title_cat){
 	}
 	echo $page_title;
 }
+?>
