@@ -17,7 +17,7 @@
  * 		date format convert from UK style to database format
  */ 
 
-include './config.inc.php';
+include 'config.inc.php';
 
 function connectdb_read()
 {
