@@ -15,20 +15,23 @@
 		<![endif]--> 
 		<link rel="stylesheet" type="text/css" href="style/bootstrap-1.1.1.css" />
 		<link rel="stylesheet" type="text/css" href="style/common.css" />
-		<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script> 
-		<script src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script> 
+		<script type="text/javascript" src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript" src="style/application.js"></script>
 		<title><?php page_title('html');?></title>
 	</head>
 	<body>
 		<div class="topbar">
 			<div class="fill">
 				<div class="container">
-					<h3><a href="#"><?php echo $system_name_short.' '.$system_version;?></a></h3>
+					<h3><a href="./"><?php echo $system_name_short.' '.$system_version;?></a></h3>
 					<ul>
 						<li<?php active('summary');?>><a href="#">Summary</a></li>
 						<li<?php active('project');?>><a href="#">Group Projects</a></li>
 					</ul>
-					<form action=""><input type="text" placeholder="Search"></form>
+					<form action="">
+						<input type="text" placeholder="Search">
+					</form>
 					<ul class="nav secondary-nav">
 						<li<?php active('private');?>><a href="#">My Private Projects</a></li>
 						<li<?php active('message');?>><a href="#">My Messages</a></li>
@@ -51,4 +54,4 @@
 		</div>
 		</div><!-- /container -->
 		<div class="container">
-<!--end header-->
+<!--/header-->
