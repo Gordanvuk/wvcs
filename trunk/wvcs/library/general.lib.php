@@ -18,8 +18,6 @@
  */ 
 
 include './config.inc.php';
-include './connectdb.php';
-include 'initial.inc.php';
 
 function connectdb_read()
 {
@@ -177,7 +175,7 @@ function month_convert($month_text) {
 
 // validate name text
 function validate_name ($text) {
-	$result = preg_replace ("/[a-zA-Z\s\'\.]*/isU", '', $text);
+	$result = preg_replace ('/[a-zA-Z\s\'\.]*/isU', '', $text);
 	if (strlen($result) > 0) {
 		return FALSE;
 	}
