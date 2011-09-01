@@ -32,6 +32,11 @@ function connectdb_rw()
 	return FALSE;
 }
 
+//format inputed data for SQL command use()
+function format($data){
+	
+}
+
 //send email
 function send_email($to, $subject, $message) {
 	//*******************2 STEP VALIDATION
