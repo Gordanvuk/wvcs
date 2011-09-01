@@ -22,9 +22,11 @@ function login_pw() {
 		echo '<br /><span class="help-inline">Please check your password.</span>';
 	}
 }
+//highlight error ID
 function default_id() {
 	if (isset ($_GET['u'])){
 		echo 'value="'.$_GET['u'].'" ';
 	}
 }
+
 ?>

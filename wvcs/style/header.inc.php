@@ -27,16 +27,16 @@ include 'libraries/style.lib.php';
 				<div class="container">
 					<h3><a href="./"><?php echo $system_name_short.' '.$system_version;?></a></h3>
 					<ul>
-						<li<?php active('summary');?>><a href="#">Summary</a></li>
-						<li<?php active('project');?>><a href="#">Group Projects</a></li>
+						<li<?php active('summary.php');?>><a href="#">Summary</a></li>
+						<li<?php active('project.php');?>><a href="#">Group Projects</a></li>
 					</ul>
 					<form action="">
 						<input type="text" placeholder="Search">
 					</form>
 					<ul class="nav secondary-nav">
 						<li<?php active('private');?>><a href="#">My Private Projects</a></li>
-						<li<?php active('message');?>><a href="#">My Messages</a></li>
-						<li<?php active('message');?>><?php right_align();?></li>
+						<li<?php active('message.php');?>><a href="#">My Messages</a></li>
+						<li><?php right_align();?></li>
 					</ul>
 				</div><!-- /container -->
 			</div><!-- /fill -->

@@ -3,10 +3,14 @@
 
 //set top bar button status to active by get value
 function active($active_string) {
-	if (isset ( $_GET ['a'] )) {
-		if ($active_string == $_GET ['a']) {
+	$name=file_name();
+	if ($active_string=="private"){
+		if ($name=="project.php" && isset($_GET['private'])){
 			echo ' class="active"';
 		}
+	}
+	elseif ($active_string == $name) {
+		echo ' class="active"';
 	}
 }
 
