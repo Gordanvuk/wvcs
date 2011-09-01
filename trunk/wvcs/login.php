@@ -1,5 +1,5 @@
 <?php
-include 'style/header.php';
+include 'style/header.inc.php';
 include 'libraries/login.lib.php';
 ?>
 <div class="row login">
@@ -39,5 +39,5 @@ include 'libraries/login.lib.php';
 </div>
 </div>
 <?php
-include 'style/footer.php';
+include 'style/footer.inc.php';
 ?>

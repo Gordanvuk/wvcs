@@ -1,24 +1,7 @@
 <?php 
-/**
- * General function library for the following requests:
- * 1. send_email()
- *      send email
- * 2. error()
- *      deal with error
- * 3. db_query()
- *      database login/privilege choosing and query executiving, return 2D array for SELECT query
- * 4. days_diff()
- *      calcuate days difference between today and a future date
- * 5. month_convert()
- * 		convert text month to 2 digits number month
- * 6. validate_name()
- * 		validate name text
- * 7. date_convert()
- * 		date format convert from UK style to database format
- */ 
+//function of general library, include database operation, error handling, email sending, calculating
 
-include 'config.inc.php';
-
+//connect to database as read-only account
 function connectdb_read()
 {
 	global $db_server;
@@ -37,6 +20,7 @@ function connectdb_read()
 	return FALSE;
 }
 
+//connect to database as write account
 function connectdb_rw()
 {
 	// Connect to the database for read and write access
@@ -96,25 +80,6 @@ function db_query($query) {
 
 }
 
-//convert departure and destination cities to flight number
-function flight_number($from_n, $to_n) {
-	
-	global $flight;
-	$flight_count = count($flight);
-	for ($i = 0; $i <= $flight_count; $i++) {
-		if ($i == $flight_count) {
-			error('flight number not found');
-			$flight_number = '';
-			break;
-		}
-		if ($from_n === $flight[$i]['from'] and $to_n === $flight[$i]['to']) {
-				$flight_number = $flight[$i]['flightNo'];
-			break;
-		}
-	}
-	return $flight_number;
-}
-
 //calcuate days difference between today and a future date
 function days_diff($date) {
 	$time = strtotime($date);
@@ -148,7 +113,13 @@ function month_convert($month_text) {
 		case "May":
 			$month_number = 5;
 			break;
+		case "Jun":
+			$month_number = 6;
+			break;
 		case "June":
+			$month_number = 6;
+			break;
+		case "Jul":
 			$month_number = 6;
 			break;
 		case "July":
@@ -158,6 +129,9 @@ function month_convert($month_text) {
 			$month_number = 8;
 			break;
 		case "Sep":
+			$month_number = 9;
+			break;
+		case "Sept":
 			$month_number = 9;
 			break;
 		case "Oct":
