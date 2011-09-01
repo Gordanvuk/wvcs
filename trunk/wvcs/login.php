@@ -33,7 +33,7 @@ include 'style/header.inc.php';
 <div class="actions">
 <button type="submit" class="btn large primary">Sign in</button>
 &nbsp;
-<button type="reset" class="btn large">Cancel</button>
+<button type="reset" class="btn large" onclick="location.href='login.php'">Cancel</button>
 </div>
 </fieldset>
 </form>

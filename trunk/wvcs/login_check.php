@@ -54,9 +54,15 @@ if ($logout==0){
 			cookie_set('id', $id);
 			cookie_set('password', $_SESSION ["user"] ["password"]);
 		}
-		//if login form cookie, back to original page
+		//if login by cookie, back to original page
 		if (isset($_GET['cookie'])){
-			$url=$_SERVER['HTTP_REFERER'];
+			//back to the page before redirect to here
+			if (isset($_SERVER['HTTP_REFERER'])){
+				$url=$_SERVER['HTTP_REFERER'];
+			}
+			else{
+				$url='login.php';
+			}
 			header("Location: $url");
 		}
 		//if login from input, back to pre-defined page
