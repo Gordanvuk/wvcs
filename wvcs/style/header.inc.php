@@ -1,5 +1,8 @@
-<?php include 'libraries/initial.inc.php';?>
-<?php include 'libraries/style.lib.php';?>
+<?php 
+include 'config.inc.php';
+include 'libraries/initial.inc.php';
+include 'libraries/style.lib.php';
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--header-->
 <html xmlns="http://www.w3.org/1999/xhtml">

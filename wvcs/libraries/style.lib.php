@@ -1,4 +1,7 @@
 <?php
+//function of dealing with style-based code
+
+//set top bar button status to active by get value
 function active($active_string) {
 	if (isset ( $_GET ['a'] )) {
 		if ($active_string == $_GET ['a']) {
@@ -6,6 +9,8 @@ function active($active_string) {
 		}
 	}
 }
+
+//set html title, page title, page sub title by category value
 function page_title($title_cat){
 	global $system_name;
 	global $system_name_short;
