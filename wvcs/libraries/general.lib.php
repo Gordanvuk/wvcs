@@ -228,6 +228,24 @@ function time_this() {
 	return $time_this;
 }
 
+// log out
+function logout() {
+	setcookie("id", "", 0, '/');
+	setcookie("password", "", 0, '/');
+	session_start();
+	unset($_SESSION ["user"]);
+	unset($_SESSION);
+	session_unset();
+	session_destroy();
+}
+
+// file name of visiting
+function file_name(){
+	$url = $_SERVER['PHP_SELF']; 
+	$filename= substr( $url , strrpos($url , '/')+1 ); 
+	return $filename;
+}
+
 // convert UK style time to DB style time
 function time_db($time_uk) {
 	$time_db = date('Y-m-d H:i:s', strtotime($time_uk));
