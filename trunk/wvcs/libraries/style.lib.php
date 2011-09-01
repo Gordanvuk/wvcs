@@ -10,6 +10,16 @@ function active($active_string) {
 	}
 }
 
+//topbar right align name display(login or logout)
+function right_align(){
+	if (isset($_SESSION ["user"] ["id"])){
+		echo '<a href="login_check.php?logout=1"><strong>'.$_SESSION ["user"] ["name_nickname"].'</strong>&nbsp;&nbsp;Sign Out</a>';
+	}
+	else{
+		echo '<a href="login.php">Sign In</a>';
+	}
+}
+
 //set html title, page title, page sub title by category value
 function page_title($title_cat){
 	global $system_name;

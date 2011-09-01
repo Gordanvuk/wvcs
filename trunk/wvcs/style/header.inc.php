@@ -36,15 +36,7 @@ include 'libraries/style.lib.php';
 					<ul class="nav secondary-nav">
 						<li<?php active('private');?>><a href="#">My Private Projects</a></li>
 						<li<?php active('message');?>><a href="#">My Messages</a></li>
-						<li class="menu">
-							<a href="#" class="menu">Dropdown</a>
-							<ul class="menu-dropdown">
-								<li><a href="#">Settings</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-							<li><a href="#">Sign out</a></li>
-							</ul>
-						</li>
+						<li<?php active('message');?>><?php right_align();?></li>
 					</ul>
 				</div><!-- /container -->
 			</div><!-- /fill -->

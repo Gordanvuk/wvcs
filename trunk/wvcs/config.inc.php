@@ -17,6 +17,9 @@ $system_version = '1.0';
 //login by: email/uid/name_nickname
 $login_by = "email";
 
+//redirect to page after successful login
+$after_login_redirect = "test.php";
+
 //cookie valid days
 $cookie_valid = 60;
 
