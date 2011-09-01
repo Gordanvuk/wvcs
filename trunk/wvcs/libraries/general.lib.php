@@ -23,6 +23,13 @@ function connectdb_read()
 //connect to database as write account
 function connectdb_rw()
 {
+	global $db_server;
+	global $db_name;
+	global $db_username_read;
+	global $db_password_read;
+	global $db_username_write;
+	global $db_password_write;
+	
 	// Connect to the database for read and write access
 	if (@mysql_connect("$db_server", "$db_username_write",
 		"$db_password_write"))
@@ -32,9 +39,31 @@ function connectdb_rw()
 	return FALSE;
 }
 
-//format inputed data for SQL command use()
-function format($data){
-	
+//format inputed data for SQL command use(), if $lower_case==1 convert to lower case
+function format_sql($data, $lower_case){
+	if (!get_magic_quotes_gpc()){
+		$data=addslashes($data);
+	}
+	$data=trim($data);
+	if ($lower_case==1){
+		$data=strtolower($data);
+	}
+	return $data;
+}
+
+//format data for HTML display
+function format_html($data){
+	return htmlspecialchars($data);
+}
+
+//count array size. If=0, return false, if>1, return true
+function array_isset($array){
+	if (count($array)>=1){
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 //send email
@@ -100,7 +129,7 @@ function days_diff($date) {
 }
 
 //convert text month to 2 digits number month
-function month_convert($month_text) {
+function month_dig($month_text) {
 	$month_number = 0;
 	switch ($month_text) {
 		case "Jan":
@@ -163,25 +192,46 @@ function validate_name ($text) {
 	}
 }
 
-// convert DB style date to UK style date
-function date_uk($date_db) {
-	$date_d = date('j', strtotime($date_db));
-	$date_m = date('M', strtotime($date_db));
-	$date_y = date('Y', strtotime($date_db));
-	if ($date_m == 'Jun') {
-		$date_m= 'June';
+// convert DB style time to UK style time
+function time_uk($time_db) {
+	$time_d = date('j', strtotime($time_db));
+	$time_m = date('M', strtotime($time_db));
+	$time_y = date('Y', strtotime($time_db));
+	$time_h = date('G', strtotime($time_db));
+	$time_min = date('i', strtotime($time_db));
+	$time_s = date('s', strtotime($time_db));
+	if ($time_m == 'Jun') {
+		$time_m= 'June';
 	}
-	if ($date_m == 'Jul') {
-		$date_m= 'July';
+	if ($time_m == 'Jul') {
+		$time_m= 'July';
 	}
-	$date_uk=$date_d.' '.$date_m.' '.$date_y;
-	return $date_uk;
+	$time_uk=$time_d.' '.$time_m.' '.$time_y.' '.$time_h.':'.$time_min.':'.$time_s;
+	return $time_uk;
 }
 
-// convert UK style date to DB style date
-function date_convert($date_uk) {
-	$date_db = date('Y-m-d', strtotime($date_uk));
-	return $date_db;
+// show this time
+function time_this() {
+	$time_d = date('j', time());
+	$time_m = date('M', time());
+	$time_y = date('Y', time());
+	$time_h = date('G', time());
+	$time_min = date('i', time());
+	$time_s = date('s', time());
+	if ($time_m == 'Jun') {
+		$time_m= 'June';
+	}
+	if ($time_m == 'Jul') {
+		$time_m= 'July';
+	}
+	$time_this=$time_d.' '.$time_m.' '.$time_y.' '.$time_h.':'.$time_min.':'.$time_s;
+	return $time_this;
+}
+
+// convert UK style time to DB style time
+function time_db($time_uk) {
+	$time_db = date('Y-m-d H:i:s', strtotime($time_uk));
+	return $time_db;
 }
 
 //compare select bar value and output selected or not

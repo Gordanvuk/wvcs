@@ -1,15 +1,16 @@
 <?php
-include 'style/header.inc.php';
+include 'libraries/initial.inc.php';
 include 'libraries/login.lib.php';
+include 'style/header.inc.php';
 ?>
 <div class="row login">
 <div class="span4 columns">latest news</div>
 <div class="span12 columns">
-<form action="goto.php" method="post">
+<form action="login_check.php" method="post">
 <fieldset><legend>Sign in <?php echo $system_name_short; ?></legend>
 <div class="clearfix<?php login_error_hl(); ?>">
 <label for="xlInput"><?php echo $system_name_short; ?> ID</label>
-<div class="input"><input class="xlarge" id="id" name="id" size="50" type="text" /><?php login_id (); ?>
+<div class="input"><input <?php default_id(); ?>class="xlarge" id="id" name="id" size="50" type="text" /><?php login_id (); ?>
 </div>
 </div>
 <!-- /clearfix -->
@@ -23,7 +24,7 @@ include 'libraries/login.lib.php';
 <div class="clearfix"><label id="optionsRadio"></label>
 <div class="input">
 <ul class="inputs-list">
-	<li><label> <input type="checkbox" name="optionsCheckboxes" value="option1"> <span>Remember me</span>
+	<li><label> <input type="checkbox" name="remember" value="1"> <span>Remember me</span>
 	&nbsp;&nbsp;&nbsp;<a href="mailto: <?php echo $administrator_email; ?>">Forgot login details?</a> </label></li>
 </ul>
 </div>
