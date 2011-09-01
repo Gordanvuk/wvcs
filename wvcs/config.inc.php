@@ -14,6 +14,12 @@ $system_name = 'Web-based Version Control System';
 $system_name_short = 'WVCS';
 $system_version = '1.0';
 
+//login by: email/uid/name_nickname
+$login_by = "email";
+
+//cookie valid days
+$cookie_valid = 60;
+
 //default time zone
 $time_zone_default = 0;
 

@@ -1,4 +1,6 @@
 <?php
+//function of dealing with login.php
+
 //if login has been returned when error, high light error field by pre-defined css tag
 function login_error_hl() {
 	if (isset ( $_GET ['error'] )) {
@@ -8,7 +10,7 @@ function login_error_hl() {
 //if login has been returned when ID error, show comment under ID field
 function login_id() {
 	if (isset ( $_GET ['error'] )) {
-		echo '<br /><span class="help-inline">Please check your ID.</span>';
+		echo '<br /><span class="help-inline">Please check your ID. Maybe your e-mail address.</span>';
 	}
 	elseif (!isset ( $_GET ['error'] )) {
 		echo '<br /><span class="help-inline">Maybe your e-mail address.</span>';
@@ -18,6 +20,11 @@ function login_id() {
 function login_pw() {
 	if (isset ( $_GET ['error'] )) {
 		echo '<br /><span class="help-inline">Please check your password.</span>';
+	}
+}
+function default_id() {
+	if (isset ($_GET['u'])){
+		echo 'value="'.$_GET['u'].'" ';
 	}
 }
 ?>
