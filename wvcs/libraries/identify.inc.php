@@ -1,10 +1,12 @@
 <?php
+//start session
+session_start();
 
-//if session exist
+//if user session exist
 if (!empty($_SESSION ["user"] ["email"])){
 	
 }
-//if session not exist, but cookie exist
+//if user session not exist, but cookie exist
 elseif (!empty($_COOKIE['id'])){
 	header("Location: login_check.php?cookie=1");
 }
