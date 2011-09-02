@@ -262,6 +262,17 @@ function selected ($option_this, $option_value) {
 	}
 }
 
+//last page
+function last_page(){
+	if (isset($_SERVER['HTTP_REFERER'])){
+		return $_SERVER['HTTP_REFERER'];
+	}
+	else{
+		global $after_login_redirect;
+		return $after_login_redirect;
+	}
+}
+
 //compare radio button value and output checked or not
 function checked ($option_this, $option_value) {
 	if ($option_this == $option_value) {

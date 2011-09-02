@@ -13,8 +13,6 @@ include 'libraries/style.lib.php';
 		<link rel="stylesheet" type="text/css" href="style/bootstrap-1.1.1.css" />
 		<link rel="stylesheet" type="text/css" href="style/common.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
-		<script type="text/javascript" src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
-		<script type="text/javascript" src="style/application.js"></script>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements --> 
 		<!--[if lt IE 9]>
 			<script src="style/html5.js"></script>
