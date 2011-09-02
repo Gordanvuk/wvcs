@@ -1,6 +1,6 @@
 <?php
 include 'libraries/initial.inc.php';
-include 'libraries/file.lib.php';
+include 'libraries/project.lib.php';
 if(isset($_GET['f'])){
 	$f=$_GET['f'];
 }
@@ -35,20 +35,20 @@ else{
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 
-		        $("#myTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+		        $("table#file_changes").tablesorter( {sortList: [[0,1]]} ); 
 		    } 
 		);  
 	</script>
-	<table class="zebra-striped" id="myTable">
-	<tr>
-	<th class="orange">Version</th>
+	<table id="file_changes" class="zebra-striped">
+	<thead>
+	<th class="yellow">Ver</th>
 	<th class="red">File Name</th>
 	<th class="blue">Directory</th>
 	<th class="blue">Size</th>
 	<th class="green">Operation</th>
 	<th class="green">Time</th>
 	<th class="purple">Description</th>
-	</tr>
+	</thead>
 	<?php
 	for ($i = 0; $i < $file_change_number; $i++) {
 		$version=$db_array[$i]['version'];
