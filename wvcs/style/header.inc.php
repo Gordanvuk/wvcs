@@ -12,7 +12,8 @@ include 'libraries/style.lib.php';
 		<meta name="description" content="WVCS 1.0; Working in the Cloud: Web-based Version Control System for Task-oriented Group and Individual Projects">
 		<link rel="stylesheet" type="text/css" href="style/bootstrap-1.1.1.css" />
 		<link rel="stylesheet" type="text/css" href="style/common.css" />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
+		<script type="text/javascript" src="style/jquery-1.6.2.min.js"></script> 
+		<script type="text/javascript" src="style/jquery.tablesorter.min.js"></script>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements --> 
 		<!--[if lt IE 9]>
 			<script src="style/html5.js"></script>
