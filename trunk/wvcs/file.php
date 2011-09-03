@@ -7,11 +7,11 @@ if(isset($_GET['f'])){
 else{
 	$f=0;
 }
-if(get_file($f)==FALSE){
+if(fetch_file($f)==FALSE){
 }
 else{
 	//file name, last commit time, page title, page sub title
-	$db_array=get_file(1);
+	$db_array=fetch_file($f);
 	$file_name=$db_array[0]['name'];
 	$file_last_update=time_uk($db_array[0]['time']);
 	$page_title=$file_name;
@@ -19,8 +19,9 @@ else{
 	$file_change_number=count($db_array);
 }
 include 'style/header.inc.php';
-
-if(get_file($f)==FALSE){
+?>
+<?php 
+if(fetch_file($f)==FALSE){
 	echo "File not exist or have not any changes, please create before use";
 }
 else{
