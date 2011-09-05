@@ -206,7 +206,25 @@ function time_uk($time_db) {
 	if ($time_m == 'Jul') {
 		$time_m= 'July';
 	}
-	$time_uk=$time_d.' '.$time_m.' '.$time_y.' '.$time_h.':'.$time_min.':'.$time_s;
+	$time_uk=$time_h.':'.$time_min.', '.$time_d.' '.$time_m.' '.$time_y;
+	return $time_uk;
+}
+
+// convert DB style time to UK style date
+function date_uk($time_db) {
+	$time_d = date('j', strtotime($time_db));
+	$time_m = date('M', strtotime($time_db));
+	$time_y = date('Y', strtotime($time_db));
+	$time_h = date('G', strtotime($time_db));
+	$time_min = date('i', strtotime($time_db));
+	$time_s = date('s', strtotime($time_db));
+	if ($time_m == 'Jun') {
+		$time_m= 'June';
+	}
+	if ($time_m == 'Jul') {
+		$time_m= 'July';
+	}
+	$time_uk=$time_d.' '.$time_m.' '.$time_y;
 	return $time_uk;
 }
 
@@ -252,14 +270,10 @@ function time_db($time_uk) {
 	return $time_db;
 }
 
-//compare select bar value and output selected or not
-function selected ($option_this, $option_value) {
-	if ($option_this == $option_value) {
-		return 'selected="selected"';
-	}
-	else {
-		return '';
-	}
+// convert file size unit from byte to B, KB, MB, GB, TB, PB by base-1024
+function file_size_convert($size) {
+   $unit=array('Byte','KB','MB','GB','TB','PB');
+   return @round($size/pow(1024,($i=floor(log( abs($size==0?1:$size) ,1024)))),2).' '.$unit[$i];
 }
 
 //last page

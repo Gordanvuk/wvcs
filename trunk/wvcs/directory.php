@@ -7,45 +7,55 @@ if(isset($_GET['d'])){
 else{
 	$d=0;
 }
-if(fetch_directory($d)==FALSE){
+if(fetch_directory_change($d)==FALSE){
 }
 else{
-	//file name, last commit time, page title, page sub title
-	$db_array=fetch_directory($d);
+	//directory name, last commit time, page title, page sub title
+	$db_array=fetch_directory_change($d);
 	$directory_name=$db_array[0]['name'];
 	$directory_last_update=time_uk($db_array[0]['time']);
 	$page_title=$directory_name;
-	$page_title_sub="last commit : ".$directory_last_update;
+	$page_title_sub="last commit : [".$directory_last_update."]";
 	$directory_change_number=count($db_array);
+	if ($directory_change_number<=1){
+		$version_title="version";
+	}
+	else {
+		$version_title="versions";
+	}
 }
 include 'style/header.inc.php';
 ?>
 <?php 
-if(fetch_directory($d)==FALSE){
-	echo "Directory not exist or have not any changes, please create before use";
+if(fetch_directory_change($d)==FALSE){
+	?>
+	<div class="alert-message error">
+        <a class="close" href="<?php echo $after_login_redirect; ?>">×</a>
+        <p><strong>Oops!</strong> Directory not exist or have not any changes, please create before use.</p>
+    </div>
+	<?php ;
 }
 else{
-	//navigation bar
-	echo "<h6>Project <small> -&gt; </small>Task<small> -&gt; </small>File</h6>";
+	echo "<h5>Project <small> -&gt; </small>Task<small> -&gt; </small>Directory</h5>";
 	
-	//file change history list/table
+	//directory change history list/table
 	?>
 	<div class="row">
-	<div class="span4 columns">operations</div>
-	<div class="span12 columns">
+	<div class="span3 columns">operations</div>
+	<div class="span13 columns">
+	<h3><?php echo $directory_name;?> <small><?php echo $directory_change_number." ".$version_title;?></small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 
-		        $("table#file_changes").tablesorter( {sortList: [[0,1]]} ); 
+		        $("table#directory_changes").tablesorter( {sortList: [[0,1]]} ); 
 		    } 
 		);  
 	</script>
-	<table id="file_changes" class="zebra-striped">
+	<table id="directory_changes" class="zebra-striped">
 	<thead>
 	<th class="yellow">Ver</th>
-	<th class="red">File Name</th>
-	<th class="blue">Directory</th>
-	<th class="blue">Size</th>
+	<th class="blue">Base</th>
+	<th class="red">Name</th>
 	<th class="green">Operation</th>
 	<th class="green">Time</th>
 	<th class="purple">Description</th>
@@ -54,24 +64,25 @@ else{
 	for ($i = 0; $i < $directory_change_number; $i++) {
 		$version=$db_array[$i]['version'];
 		$name=$db_array[$i]['name'];
-		$did_upper=$db_array[$i]['did_upper'];
-		$time=$db_array[$i]['time'];
+		$did_base=fetch_directory_full($db_array[$i]['did_base']);
+		$time=time_uk($db_array[$i]['time']);
+		$operation=$db_array[$i]['type'];
 		$description=$db_array[$i]['description'];
 		echo "<tr><td>";
 		echo $version;
 		echo "</td><td>";
-		echo $name;
+		echo $did_base;
 		echo "</td><td>";
-		echo $did_upper;
+		echo "<strong>".$name."</strong>";
+		echo "</td><td>";
+		echo $operation;
 		echo "</td><td>";
 		echo $time;
 		echo "</td><td>";
 		echo $description;
 		echo "</td></tr>";
-	} 
+	}
 	echo '</table></div></div>';
-	 
-	
 }
 ?>
 

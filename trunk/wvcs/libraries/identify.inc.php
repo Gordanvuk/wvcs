@@ -8,7 +8,8 @@ if (!empty($_SESSION ["user"] ["email"])){
 }
 //if user session not exist, but cookie exist
 elseif (!empty($_COOKIE['id'])){
-	header("Location: login_check.php?cookie=1");
+	$_SESSION ["system"] ["login_from"]=$_SERVER["REQUEST_URI"];
+	header("Location: login_check.php?cookie=1&");
 }
 //if no session and no cookie
 elseif (file_name()!="login.php") {

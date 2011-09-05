@@ -14,6 +14,7 @@ elseif (isset($_GET['cookie'])){
 	if (!empty($_COOKIE['id'])){
 		$id=$_COOKIE['id'];
 		$password=$_COOKIE['password'];
+		
 	}
 	else {
 		header("Location: login.php");
@@ -21,7 +22,7 @@ elseif (isset($_GET['cookie'])){
 }
 else{
 	$id=receive('id');
-	$password=receive('password');//md5
+	$password=md5(receive('password'));//md5
 }
 if ($logout==0){
 	$sql='SELECT * FROM user WHERE '.$login_by.'="'.$id.'" and password="'.$password.'"';
@@ -29,6 +30,7 @@ if ($logout==0){
 	
 	//if login fail
 	if (!array_isset($db_array)){
+		logout();
 		login_return();
 	}
 	//if login OK
@@ -36,8 +38,8 @@ if ($logout==0){
 		//set session for login
 		session_start();
 		$_SESSION ["user"] ["id"] = $db_array[0]['uid'];
-		$_SESSION ["user"] ["name_first"] = $db_array[0]['name_first'];
 		$_SESSION ["user"] ["title"] = $db_array[0]['title'];
+		$_SESSION ["user"] ["name_first"] = $db_array[0]['name_first'];
 		$_SESSION ["user"] ["name_middle"] = $db_array[0]['name_middle'];
 		$_SESSION ["user"] ["name_last"] = $db_array[0]['name_last'];
 		$_SESSION ["user"] ["name_nickname"] = $db_array[0]['name_nickname'];
@@ -52,23 +54,27 @@ if ($logout==0){
 		//if ticked "remember me" then set cookie for next auto-login
 		if (receive('remember')){
 			cookie_set('id', $id);
-			cookie_set('password', $_SESSION ["user"] ["password"]);
+			cookie_set('password', $password);
 		}
 		//if login by cookie, back to original page
 		if (isset($_GET['cookie'])){
-			//back to the page before redirect to here
+			//back to the page before redirect to here by HTTP_REFERER
 			if (isset($_SERVER['HTTP_REFERER'])){
 				$url=$_SERVER['HTTP_REFERER'];
 			}
-			else{
-				$url='login.php';
+			//back to the page before redirect to here by SESSION
+			elseif (isset($_SESSION ["system"] ["login_from"])){
+				$url=$_SESSION ["system"] ["login_from"];
 			}
-			header("Location: $url");
+			else{
+				$url=$after_login_redirect;
+			}
 		}
 		//if login from input, back to pre-defined page
 		else{
-			header("Location: $after_login_redirect");
+			$url=$after_login_redirect;
 		}
+		header("Location: $url");
 	}
 }
 

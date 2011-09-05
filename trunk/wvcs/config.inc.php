@@ -24,10 +24,8 @@ $after_login_redirect = "test.php";
 $cookie_valid = 60;
 
 //default time zone
-$time_zone_default = 0;
-
-//default day light saving time status (0=disabled, 1=active, 2=by server setting)
-$dst_status = 2;
+//location strings can be found at http://www.php.net/manual/en/timezones.php
+date_default_timezone_set("Europe/London");
 
 //Terms and Conditions
 $terms_conditions = '
