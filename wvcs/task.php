@@ -76,7 +76,7 @@ else{
 		$description=$db_array_task_file[$i]['description'];
 		echo '<tr class="td_link" onclick="location.href=\'file.php?f='.$fid.'\'"><td>';
 		echo $version;
-		echo "</td><td>";
+		echo '</td><td class="red">';
 		echo $directory."<strong>".$name."</strong>";
 		echo "</td><td>";
 		echo $size;

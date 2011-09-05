@@ -1,0 +1,29 @@
+	<table id="task_changes" class="zebra-striped">
+	<thead>
+	<th class="yellow">Ver</th>
+	<th class="blue">Done</th>
+	<th class="red">By</th>
+	<th class="green">Time</th>
+	<th class="purple">Description</th>
+	</thead>
+	<?php
+	for ($i = 0; $i < $task_change_number; $i++) {
+		$version=$db_array[$i]['version'];
+		$db_array_user=fetch_user($db_array[$i]['uid']);
+		$user=$db_array_user[0]['name_nickname']." (".$db_array_user[0]['name_first']." ".$db_array_user[0]['name_last'].")";
+		$time=time_uk($db_array[$i]['time']);
+		$percent=$db_array[$i]['percent'];
+		$description=$db_array[$i]['description'];
+		echo "<tr><td>";
+		echo $version;
+		echo "</td><td>";
+		echo $percent."%";
+		echo "</td><td>";
+		echo $user;
+		echo "</td><td>";
+		echo $time;
+		echo "</td><td>";
+		echo $description;
+		echo "</td></tr>";
+	} 
+	echo '</table></div></div>';
