@@ -7,32 +7,44 @@ if(isset($_GET['f'])){
 else{
 	$f=0;
 }
-if(fetch_file($f)==FALSE){
+if(fetch_file_change($f)==FALSE){
 }
 else{
 	//file name, last commit time, page title, page sub title
-	$db_array=fetch_file($f);
+	$db_array=fetch_file_change($f);
 	$file_name=$db_array[0]['name'];
 	$file_last_update=time_uk($db_array[0]['time']);
 	$page_title=$file_name;
-	$page_title_sub="last commit : ".$file_last_update;
+	$page_title_sub="last commit : [".$file_last_update."]";
 	$file_change_number=count($db_array);
+	if ($file_change_number<=1){
+		$version_title="version";
+	}
+	else {
+		$version_title="versions";
+	}
 }
 include 'style/header.inc.php';
 ?>
 <?php 
-if(fetch_file($f)==FALSE){
-	echo "File not exist or have not any changes, please create before use";
+if(fetch_file_change($f)==FALSE){
+	?>
+	<div class="alert-message error">
+        <a class="close" href="<?php echo $after_login_redirect; ?>">×</a>
+        <p><strong>Oops!</strong> File not exist or have not any changes, please create before use.</p>
+    </div>
+	<?php ;
 }
 else{
 	//navigation bar
-	echo "<h6>Project <small> -&gt; </small>Task<small> -&gt; </small>File</h6>";
+	echo "<h5>Project <small> -&gt; </small>Task<small> -&gt; </small>File</h5>";
 	
 	//file change history list/table
 	?>
 	<div class="row">
-	<div class="span4 columns">operations</div>
-	<div class="span12 columns">
+	<div class="span3 columns">operations</div>
+	<div class="span13 columns">
+	<h3><?php echo $file_name;?> <small><?php echo $file_change_number." ".$version_title;?></small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 
@@ -43,8 +55,7 @@ else{
 	<table id="file_changes" class="zebra-striped">
 	<thead>
 	<th class="yellow">Ver</th>
-	<th class="red">File Name</th>
-	<th class="blue">Directory</th>
+	<th class="red">Location & File Name</th>
 	<th class="blue">Size</th>
 	<th class="green">Operation</th>
 	<th class="green">Time</th>
@@ -54,30 +65,26 @@ else{
 	for ($i = 0; $i < $file_change_number; $i++) {
 		$version=$db_array[$i]['version'];
 		$name=$db_array[$i]['name'];
-		$directory=$db_array[$i]['did'];
-		$size=$db_array[$i]['size'];
+		$directory=fetch_directory_full($db_array[$i]['did']);
+		$size=file_size_convert($db_array[$i]['size']);
 		$operation=$db_array[$i]['type'];
 		$time=$db_array[$i]['time'];
 		$description=$db_array[$i]['description'];
 		echo "<tr><td>";
 		echo $version;
 		echo "</td><td>";
-		echo $name;
+		echo $directory."<strong>".$name."</strong>";
 		echo "</td><td>";
-		echo $directory;
-		echo "</td><td>";
-		echo $db_array[$i]['size'];
+		echo $size;
 		echo "</td><td>";
 		echo $operation;
 		echo "</td><td>";
-		echo $time;
+		echo time_uk($time);
 		echo "</td><td>";
 		echo $description;
 		echo "</td></tr>";
 	} 
 	echo '</table></div></div>';
-	 
-	
 }
 ?>
 
