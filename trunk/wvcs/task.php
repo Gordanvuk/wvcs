@@ -55,7 +55,7 @@ else{
 	<div class="row">
 	<div class="span3 columns">operations</div>
 	<div class="span13 columns">
-	<h3 class="underline"><?php echo $task_name;?>&nbsp;&nbsp;<small>(<?php echo $file_number." ".$version_label_file;?>)</small></h3>
+	<h3 class="underline"><?php echo ucfirst($version_label_file).' of "'.$task_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_number." ".$version_label_file;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 
@@ -99,7 +99,7 @@ else{
 	echo '</table>';
 	?>
 	
-	<h3 class="underline"><?php echo $task_name;?>&nbsp;&nbsp;<small>(<?php echo $directory_number." ".$version_label_directory;?>)</small></h3>
+	<h3 class="underline"><?php echo ucfirst($version_label_directory).' of "'.$task_name;?>"&nbsp;&nbsp;<small>(<?php echo $directory_number." ".$version_label_directory;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 

@@ -26,14 +26,14 @@ include 'libraries/style.lib.php';
 				<div class="container">
 					<h3><a href="./"><?php echo $system_name_short.' '.$system_version;?></a></h3>
 					<ul>
-						<li<?php active('summary.php');?>><a href="#">Summary</a></li>
-						<li<?php active('project');?>><a href="#">Group Projects</a></li>
+						<li<?php active('summary.php');?>><a href="summary.php">Summary</a></li>
+						<li<?php active('project');?>><a href="project_list.php">Group Projects</a></li>
 					</ul>
-					<form action="file.php" method="post">
-						<input type="text" placeholder="Search Tasks">
+					<form action="task_search.php" method="get">
+						<input type="text" name="s" placeholder="search my tasks">
 					</form>
 					<ul class="nav secondary-nav">
-						<li<?php active('private');?>><a href="#">My Private Projects</a></li>
+						<li<?php active('private');?>><a href="project_list.php?private=1">My Private Projects</a></li>
 						<li><?php right_align();?></li>
 					</ul>
 				</div><!-- /container -->

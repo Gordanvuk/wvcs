@@ -1,4 +1,6 @@
 <?php
+//**limit UID of login when view task
+
 //get logged in user
 function user_logged_in(){
 	if (isset($_SESSION ["user"] ["uid"])){
@@ -22,7 +24,6 @@ function fetch_user($uid){
 }
 
 //function of list tasks by project ID
-//**limit UID of login at this SQL statement
 function fetch_user_task ($uid){
 	$sql='SELECT * FROM task WHERE uid='.$uid.' ORDER BY pid DESC';
 	$db_array=db_query($sql);
@@ -47,7 +48,6 @@ function fetch_project($pid){
 }
 
 //function of list tasks by project ID
-//**limit UID of login at this SQL statement
 function fetch_project_task ($pid){
 	$sql='SELECT * FROM task WHERE pid='.$pid.' ORDER BY pid DESC';
 	$db_array=db_query($sql);
@@ -112,6 +112,35 @@ function fetch_directory_full($did){
 //function of read file_changes information from database by file ID
 function fetch_file_change($fid){
 	$sql='SELECT * FROM file_change WHERE fid='.$fid.' ORDER BY time DESC';
+	$db_array=db_query($sql);
+	if (!array_isset($db_array)){
+		return FALSE;
+	}
+	else{
+		return $db_array;
+	}
+}
+
+//function of search task_histroy information from database by keywords
+function fetch_task_history_search($s){
+	$sql='SELECT tid FROM task WHERE name LIKE "%'.$s.'%" ORDER BY tid DESC';
+	$db_array_tid=db_query($sql);
+	if (!array_isset($db_array_tid)){
+		return FALSE;
+	}
+	else{
+		$task_count=count($db_array_tid);
+		for ($i = 0; $i < $task_count; $i++) {
+			$db_array_task=fetch_task_history($db_array_tid[$i]['tid']);
+			$db_array_task_history[$i]=$db_array_task[0];
+		}
+		return $db_array_task_history;
+	}
+}
+
+//function of search task information from database by keywords
+function fetch_task_search($s){
+	$sql='SELECT * FROM task WHERE name LIKE "%'.$s.'%" ORDER BY tid DESC';
 	$db_array=db_query($sql);
 	if (!array_isset($db_array)){
 		return FALSE;
