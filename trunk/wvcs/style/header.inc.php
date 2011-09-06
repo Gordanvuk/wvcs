@@ -10,7 +10,7 @@ include 'libraries/style.lib.php';
 		<meta name="keywords" content="Version Control, Cloud, Task-oriented, Project, Teamwork" />
 		<meta name="author" content="Sheng Yu, sy595@cs.york.ac.uk" />
 		<meta name="description" content="WVCS 1.0; Working in the Cloud: Web-based Version Control System for Task-oriented Group and Individual Projects">
-		<link rel="stylesheet" type="text/css" href="style/bootstrap-1.1.1.css" />
+		<link rel="stylesheet" type="text/css" href="style/bootstrap-1.2.0.css" />
 		<link rel="stylesheet" type="text/css" href="style/common.css" />
 		<script type="text/javascript" src="style/jquery-1.6.2.min.js"></script> 
 		<script type="text/javascript" src="style/jquery.tablesorter.min.js"></script>
@@ -27,23 +27,23 @@ include 'libraries/style.lib.php';
 					<h3><a href="./"><?php echo $system_name_short.' '.$system_version;?></a></h3>
 					<ul>
 						<li<?php active('summary.php');?>><a href="#">Summary</a></li>
-						<li<?php active('project.php');?>><a href="#">Group Projects</a></li>
+						<li<?php active('project');?>><a href="#">Group Projects</a></li>
 					</ul>
-					<form action="">
-						<input type="text" placeholder="Search">
+					<form action="file.php" method="post">
+						<input type="text" placeholder="Search Tasks">
 					</form>
 					<ul class="nav secondary-nav">
 						<li<?php active('private');?>><a href="#">My Private Projects</a></li>
-						<li<?php active('message.php');?>><a href="#">My Messages</a></li>
 						<li><?php right_align();?></li>
 					</ul>
 				</div><!-- /container -->
 			</div><!-- /fill -->
 		</div><!-- /topbar -->
-		<div class="container">
+		<div class="container main_content">
+		<div class="page_icon">
+		<img class="page_icon" src="<?php echo icon_address (); ?>" alt="<?php echo icon_alt (); ?>" />
+		</div>
 		<div class="page-header">
 			<h1><?php page_title('main');?> <small><?php page_title('sub');?></small></h1>
 		</div>
-		</div><!-- /container -->
-		<div class="container">
 		<!--/header-->

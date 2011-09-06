@@ -3,7 +3,7 @@
 session_start();
 
 //if user session exist
-if (!empty($_SESSION ["user"] ["email"])){
+if (!empty($_SESSION ["user"] ["uid"])){
 	
 }
 //if user session not exist, but cookie exist

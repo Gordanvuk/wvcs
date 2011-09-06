@@ -1,15 +1,77 @@
 <?php
 //function of dealing with style-based code
 
+//set icon image address
+function icon_address(){
+	$base='images/icon/';
+	switch (file_name()) {
+		case "summary.php":
+			$name= "summary.gif";
+			break;
+		case "project.php":
+			$name= "project.gif";
+			break;
+		case "project_list.php":
+			$name= "project_list.gif";
+			break;
+		case "task.php":
+			$name= "task.gif";
+			break;
+		case "file.php":
+			$name= "file.gif";
+			break;
+		case "directory.php":
+			$name= "directory.gif";
+			break;
+		case "search.php":
+			$name= "search.gif";
+			break;
+		default:
+			$name= "default.gif";
+	}
+	return $base.$name;
+}
+
+//set icon image alter message
+function icon_alt(){
+	switch (file_name()) {
+		case "summary.php":
+			$alt= "Summary";
+			break;
+		case "project.php":
+			$alt= "Project";
+			break;
+		case "project_list.php":
+			$alt= "Project List";
+			break;
+		case "task.php":
+			$alt= "Task";
+			break;
+		case "file.php":
+			$alt= "File";
+			break;
+		case "directory.php":
+			$alt= "Directory";
+			break;
+		case "search.php":
+			$alt= "Search";
+			break;
+		default:
+			$alt= "Welcome";
+	}
+	return $alt;
+}
+
 //set top bar button status to active by get value
 function active($active_string) {
 	$name=file_name();
-	if ($active_string=="private"){
-		if ($name=="project.php" && isset($_GET['private'])){
-			echo ' class="active"';
-		}
+	if ($active_string=="private" and $name=="project.php" and isset($_GET['private'])) {
+		echo ' class="active"';
 	}
 	elseif ($active_string == $name) {
+		echo ' class="active"';
+	}
+	elseif (($name=="project.php" or $name=="task.php" or $name=="file.php" or $name=="directory.php" or $name=="project_list.php") and $active_string == "project") {
 		echo ' class="active"';
 	}
 }

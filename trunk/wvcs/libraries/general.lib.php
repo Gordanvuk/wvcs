@@ -297,4 +297,29 @@ function checked ($option_this, $option_value) {
 	}
 }
 
+//code translation of operations
+function operation_code ($op) {
+	$name='';
+	switch ($op) {
+		case 0:
+			$name= "No Change";
+			break;
+		case 1:
+			$name= "Create";
+			break;
+		case 2:
+			$name= "Delete";
+			break;
+		case 3:
+			$name= "Update";
+			break;
+		case 4:
+			$name= "Move";
+			break;
+		default:
+			$name= "Undefined";
+	}
+	return $name;
+}
+
 ?>

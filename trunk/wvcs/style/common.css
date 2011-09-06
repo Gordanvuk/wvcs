@@ -17,3 +17,23 @@ color: #555588;
 .td_link {
 	cursor:pointer;
 }
+table .black {
+	color: #333333;
+}
+.main_content{
+	min-height:400px;
+}
+.underline{
+	text-decoration: underline;
+}
+div.page_icon{
+	float:right;
+	height:64px;
+	weith:64px;
+	border:0px;
+}
+img.page_icon{
+	height:64px;
+	weith:64px;
+	border:0px;
+}
