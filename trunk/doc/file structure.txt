@@ -9,3 +9,6 @@ http://code.google.com/p/html5shim/
 prettify/
 source code highlight library under Apache License 2.0
 http://code.google.com/p/google-code-prettify/
+
+images/icon
+http://www.smashingmagazine.com/2009/04/27/project-icon-set-for-free-download/
