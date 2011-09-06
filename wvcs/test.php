@@ -1,3 +1,4 @@
 <?php
-echo md5("york");
+$test=array();
+echo count($test);
 ?>

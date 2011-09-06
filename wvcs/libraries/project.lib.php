@@ -1,8 +1,8 @@
 <?php
 //get logged in user
 function user_logged_in(){
-	if (isset($_SESSION ["user"] ["id"])){
-		return $_SESSION ["user"] ["id"];
+	if (isset($_SESSION ["user"] ["uid"])){
+		return $_SESSION ["user"] ["uid"];
 	}
 	else {
 		return FALSE;
@@ -12,6 +12,19 @@ function user_logged_in(){
 //function of load dir_changes information from database
 function fetch_user($uid){
 	$sql='SELECT * FROM user WHERE uid='.$uid;
+	$db_array=db_query($sql);
+	if (!array_isset($db_array)){
+		return FALSE;
+	}
+	else{
+		return $db_array;
+	}
+}
+
+//function of list tasks by project ID
+//**limit UID of login at this SQL statement
+function fetch_user_task ($uid){
+	$sql='SELECT * FROM task WHERE uid='.$uid.' ORDER BY pid DESC';
 	$db_array=db_query($sql);
 	if (!array_isset($db_array)){
 		return FALSE;
@@ -132,17 +145,70 @@ function fetch_task($tid){
 	}
 }
 
+//function of list tasks by project ID
+//**limit UID of login at this SQL statement
+function fetch_task_project ($tid){
+	$sql='SELECT pid FROM task WHERE tid='.$tid.' ORDER BY tid DESC';
+	$db_array=db_query($sql);
+	if (!array_isset($db_array)){
+		return FALSE;
+	}
+	else{
+		$sql_p='SELECT * FROM project WHERE pid='.$db_array[0]['pid'].' ORDER BY pid DESC';
+		$db_array_p=db_query($sql_p);
+		if (!array_isset($db_array_p)){
+			return FALSE;
+		}
+		else {
+			return $db_array_p;
+		}
+	}
+}
+
 //function of identify task finished or not from database by task ID
 function fetch_task_finished($tid){
 	$sql='SELECT * FROM task WHERE tid='.$tid.' ORDER BY end DESC';
 	$db_array_task=db_query($sql);
 	$sql2='SELECT * FROM task_history WHERE tid='.$tid.' ORDER BY version DESC';
 	$db_array_task_history=db_query($sql2);
-	if ($db_array_task[0]['end']<time()){
+	if (isset($db_array_task[0]['end']) and strtotime($db_array_task[0]['end'])<time()){
 		return TRUE;
 	}
-	elseif ($db_array_task_history[0]['percent']>=100){
+	elseif (isset($db_array_task_history[0]['percent']) and $db_array_task_history[0]['percent']>=100){
 		return TRUE;
+	}
+	else{
+		return FALSE;
+	}
+}
+
+//function of task expired or not
+function fetch_task_ready ($tid){
+	$sql='SELECT * FROM task WHERE tid='.$tid.' ORDER BY end DESC';
+	$db_array_task=db_query($sql);
+	$sql2='SELECT * FROM task_history WHERE tid='.$tid.' ORDER BY version DESC';
+	$db_array_task_history=db_query($sql2);
+	if (isset($db_array_task[0]['start']) and strtotime($db_array_task[0]['start'])<time() and count($db_array_task_history)<1){
+		return TRUE;
+	}
+	else{
+		return FALSE;
+	}
+}
+
+//function of task expired or not
+function fetch_task_doing ($tid){
+	$sql='SELECT * FROM task WHERE tid='.$tid.' ORDER BY end DESC';
+	$db_array_task=db_query($sql);
+	$sql2='SELECT * FROM task_history WHERE tid='.$tid.' ORDER BY version DESC';
+	$db_array_task_history=db_query($sql2);
+	if (isset($db_array_task[0]['start']) and strtotime($db_array_task[0]['start'])<time() and count($db_array_task_history)>=1){
+		if ($db_array_task_history[0]['percent']<100){
+			return TRUE;
+		}
+		else {
+			return FALSE;
+		}
 	}
 	else{
 		return FALSE;
@@ -219,22 +285,39 @@ function fetch_task_file ($tid){
 	}
 }
 
+//function of list directories by task ID
+function fetch_task_directory ($tid){
+	$sql='SELECT did FROM directory WHERE tid='.$tid.' ORDER BY did DESC';
+	$db_array_did=db_query($sql);
+	if (!array_isset($db_array_did)){
+		return FALSE;
+	}
+	else{
+		$directory_count=count($db_array_did);
+		for ($i = 0; $i < $directory_count; $i++) {
+			$db_array_directory=fetch_directory_change($db_array_did[$i]['did']);
+			$db_array_directory_change[$i]=$db_array_directory[0];
+		}
+		return $db_array_directory_change;
+	}
+}
+
 //function of task_status
 function task_status ($tid){
 	$status='';
 	$db_array_task=fetch_task($tid);
 	$db_array_task_history=fetch_task_history($tid);
-	if (strtotime($db_array_task[0]['start'])>time()){
+	if (isset($db_array_task[0]['start']) and strtotime($db_array_task[0]['start'])>time()){
 		$status.='Not yet start. ';
 	}
-	if (count($db_array_task_history)>=1){
+	if (isset($db_array_task_history[0]['version']) and count($db_array_task_history)>=1){
 		$status.='Ver '.$db_array_task_history[0]['version'].', ('.$db_array_task_history[0]['percent'].'%) ';
 	}
-	if (strtotime($db_array_task[0]['end'])<time()){
+	if (isset($db_array_task[0]['end']) and strtotime($db_array_task[0]['end'])<time()){
 		$status.='Expired. ';
 	}
 	if (fetch_task_predecessor_wait($tid)){
-		$status.='Waiting for pre-task. ';
+		$status.='Waiting for predecessor. ';
 	}
 	return $status;
 }

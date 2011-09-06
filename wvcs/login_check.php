@@ -37,7 +37,7 @@ if ($logout==0){
 	else{
 		//set session for login
 		session_start();
-		$_SESSION ["user"] ["id"] = $db_array[0]['uid'];
+		$_SESSION ["user"] ["uid"] = $db_array[0]['uid'];
 		$_SESSION ["user"] ["title"] = $db_array[0]['title'];
 		$_SESSION ["user"] ["name_first"] = $db_array[0]['name_first'];
 		$_SESSION ["user"] ["name_middle"] = $db_array[0]['name_middle'];

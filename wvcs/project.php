@@ -45,15 +45,15 @@ else{
 	<div class="row">
 	<div class="span3 columns">operations</div>
 	<div class="span13 columns">
-	<h3><?php echo $project_name;?> <small><?php echo $project_task_history_number." ".$tasks_title;?></small></h3>
+	<h3 class="underline"><?php echo $project_name;?>&nbsp;&nbsp;<small>(<?php echo $project_task_history_number." ".$tasks_title;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 
-		        $("table#task_file").tablesorter( {sortList: [[3,1]]} ); 
+		        $("table#project_tasks").tablesorter( {sortList: [[3,1]]} ); 
 		    } 
 		);  
 	</script>
-	<table id="task_file" class="zebra-striped">
+	<table id="project_tasks" class="zebra-striped">
 	<thead>
 	<th class="red">Task</th>
 	<th class="blue">User</th>
@@ -67,10 +67,10 @@ else{
 		$start=time_uk($db_array_task[$i]['start']);
 		$end=time_uk($db_array_task[$i]['end']);
 		$array_user=fetch_user($db_array_task[$i]['uid']);
-		$user=$array_user[$i]['name_nickname'].' ('.$array_user[$i]['name_first'].' '.$array_user[$i]['name_last'].')';
+		$user=$array_user[0]['name_nickname'].' ('.$array_user[0]['name_first'].' '.$array_user[0]['name_last'].')';
 		$priority=$db_array_task[$i]['priority'];
 		$status=task_status($db_array_task[$i]['tid']);
-		echo "<tr><td>";
+		echo '<tr><td class="black">';
 		echo "<strong>".$task."</strong>";
 		echo "</td><td>";
 		echo $user;

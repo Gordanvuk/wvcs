@@ -44,7 +44,7 @@ else{
 	<div class="row">
 	<div class="span3 columns">operations</div>
 	<div class="span13 columns">
-	<h3><?php echo $file_name;?> <small><?php echo $file_change_number." ".$version_title;?></small></h3>
+	<h3 class="underline"><?php echo $file_name;?>&nbsp;&nbsp;<small>(<?php echo $file_change_number." ".$version_title;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 
@@ -72,14 +72,14 @@ else{
 		$description=$db_array[$i]['description'];
 		echo "<tr><td>";
 		echo $version;
-		echo "</td><td>";
+		echo '</td><td class="black">';
 		echo $directory."<strong>".$name."</strong>";
 		echo "</td><td>";
 		echo $size;
 		echo "</td><td>";
-		echo $operation;
+		echo operation_code($operation);
 		echo "</td><td>";
-		echo time_uk($time);
+		echo '['.time_uk($time).']';
 		echo "</td><td>";
 		echo $description;
 		echo "</td></tr>";
