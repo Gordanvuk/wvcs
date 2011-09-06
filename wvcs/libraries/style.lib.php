@@ -65,7 +65,7 @@ function icon_alt(){
 //set top bar button status to active by get value
 function active($active_string) {
 	$name=file_name();
-	if ($active_string=="private" and $name=="project.php" and isset($_GET['private'])) {
+	if ($active_string=="private" and isset($_GET['private'])) {
 		echo ' class="active"';
 	}
 	elseif ($active_string == $name) {

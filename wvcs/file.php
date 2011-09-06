@@ -44,7 +44,7 @@ else{
 	<div class="row">
 	<div class="span3 columns">operations</div>
 	<div class="span13 columns">
-	<h3 class="underline"><?php echo $file_name;?>&nbsp;&nbsp;<small>(<?php echo $file_change_number." ".$version_title;?>)</small></h3>
+	<h3 class="underline"><?php echo ucfirst($version_title).' of "'.$file_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_change_number." ".$version_title;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 
@@ -63,6 +63,7 @@ else{
 	</thead>
 	<?php
 	for ($i = 0; $i < $file_change_number; $i++) {
+		$fcid=$db_array[$i]['fcid'];
 		$version=$db_array[$i]['version'];
 		$name=$db_array[$i]['name'];
 		$directory=fetch_directory_full($db_array[$i]['did']);
@@ -70,7 +71,7 @@ else{
 		$operation=$db_array[$i]['type'];
 		$time=$db_array[$i]['time'];
 		$description=$db_array[$i]['description'];
-		echo "<tr><td>";
+		echo '<tr class="td_link" onclick="location.href=\'download.php?fc='.$fcid.'&fn='.$name.'\'"><td>';
 		echo $version;
 		echo '</td><td class="black">';
 		echo $directory."<strong>".$name."</strong>";
