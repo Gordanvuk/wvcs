@@ -26,14 +26,13 @@ table .black {
 .underline{
 	
 }
-div.page_icon{
+.float_left{
+	float:left;
+}
+.float_right{
 	float:right;
+}
+page_icon{
 	height:64px;
 	weith:64px;
 	border:0px;
-}
-img.page_icon{
-	height:64px;
-	weith:64px;
-	border:0px;
-}

@@ -1,4 +1,5 @@
 <?php 
+//database connection information
 $db_server = 'localhost';
 $db_name = 'wvcs';
 $db_username_read = 'root';

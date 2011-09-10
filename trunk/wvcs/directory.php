@@ -36,7 +36,7 @@ if(fetch_directory_change($d)==FALSE){
 	<?php ;
 }
 else{
-	echo "<h5>Project <small> -&gt; </small>Task<small> -&gt; </small>Directory</h5>";
+	echo "<h5>Project <small> &rarr; </small>Task<small> &rarr; </small>Directory</h5>";
 	
 	//directory change history list/table
 	?>
