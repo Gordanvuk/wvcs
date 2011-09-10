@@ -19,7 +19,7 @@ else{
 	$task_start=time_uk($db_array_task[0]['start']);
 	$task_end=time_uk($db_array_task[0]['end']);
 	$page_title=$task_name;
-	$page_title_sub="[".$task_start."] -&gt; [".$task_end."]";
+	$page_title_sub="[".$task_start."] &rarr; [".$task_end."]";
 	$directory_number=count($db_array_task_directory);
 	$file_number=count($db_array_task_file);
 	if ($file_number<=1){
@@ -48,7 +48,7 @@ if(fetch_task_file($t)==FALSE){
 }
 else{
 	//navigation bar
-	echo "<h5>Project <small> -&gt; </small>Task</h5>";
+	echo "<h5>Project <small> &rarr; </small>Task</h5>";
 	
 	//task related file list/table
 	?>

@@ -70,7 +70,7 @@ else{
 		echo "</td><td>";
 		echo $user;
 		echo "</td><td>";
-		echo "[".$start."] -&gt; [".$end."]";
+		echo "[".$start."] &rarr; [".$end."]";
 		echo "</td><td>";
 		echo $priority;
 		echo "</td><td>";

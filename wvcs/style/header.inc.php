@@ -30,7 +30,7 @@ include 'libraries/style.lib.php';
 						<li<?php active('project');?>><a href="project_list.php">Group Projects</a></li>
 					</ul>
 					<form action="task_search.php" method="get">
-						<input type="text" name="s" placeholder="search my tasks">
+						<input type="text" name="s" placeholder="search tasks">
 					</form>
 					<ul class="nav secondary-nav">
 						<li<?php active('private');?>><a href="project_list.php?private=1">My Private Projects</a></li>
@@ -40,7 +40,7 @@ include 'libraries/style.lib.php';
 			</div><!-- /fill -->
 		</div><!-- /topbar -->
 		<div class="container main_content">
-		<div class="page_icon">
+		<div class="page_icon float_right">
 		<img class="page_icon" src="<?php echo icon_address (); ?>" alt="<?php echo icon_alt (); ?>" />
 		</div>
 		<div class="page-header">

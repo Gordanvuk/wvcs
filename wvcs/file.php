@@ -37,7 +37,7 @@ if(fetch_file_change($f)==FALSE){
 }
 else{
 	//navigation bar
-	echo "<h5>Project <small> -&gt; </small>Task<small> -&gt; </small>File</h5>";
+	echo "<h5>Project <small> &rarr; </small>Task<small> &rarr; </small>File</h5>";
 	
 	//file change history list/table
 	?>

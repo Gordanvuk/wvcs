@@ -19,7 +19,7 @@ else{
 	$project_end=time_uk($db_array[0]['end']);
 	$project_description=time_uk($db_array[0]['description']);
 	$page_title=$project_name;
-	$page_title_sub="[".$project_start."] -&gt; [".$project_end."]";
+	$page_title_sub="[".$project_start."] &rarr; [".$project_end."]";
 	$project_task_history_number=count($db_array_task_history);
 	if ($project_task_history_number<=1){
 		$tasks_title="task";
@@ -76,7 +76,7 @@ else{
 		echo "</td><td>";
 		echo $user;
 		echo "</td><td>";
-		echo "[".$start."] -&gt; [".$end."]";
+		echo "[".$start."] &rarr; [".$end."]";
 		echo "</td><td>";
 		echo $priority;
 		echo "</td><td>";
