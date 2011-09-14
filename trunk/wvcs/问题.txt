@@ -1,0 +1,44 @@
+跟老师说直到今天才完成代码调试和报告 没休息
+Used almost all of my time, including evening and weekend
+I have tried my best
+抱歉没能定期给你发邮件 因为时间太紧
+
+reference 首字母大写
+Online Identity Check Problem
+as well as reduce time wasting in coordination
+设置前置任务时 检测前置是否更早 end 比较
+判断文件相等
+点击用户名发邮件
+显示group leader
+发邮件告知task assessment
+发邮件申请request task
+新建task时显示新建原则 分配原则
+summary显示project without task
+file_operation.lib.php
+re-design prototype
+画ER图
+组合methodlogy future work conclusion 
+
+上传空间
+
+5.4	Interface design
+
+5.4.1	Style
+
+把future work 放在conclusion前
+
+5.5 Accessibility
+
+5.9 5.10 5.11
+
+ethics
+
+methodolgy
+
+Acknowledgement
+
+5.2.7	Login and Safety - MD5
+
+conclusion 更好的界面 更仔细的平面设计
+
+sql 入注 所有get前加东西防止

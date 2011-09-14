@@ -42,9 +42,6 @@ if(fetch_project($p)==FALSE){
 else{
 	//task history list/table
 	?>
-	<div class="row">
-	<div class="span3 columns">operations</div>
-	<div class="span13 columns">
 	<h3 class="underline"><?php echo ucfirst($tasks_title).' of "'.$project_name;?>"&nbsp;&nbsp;<small>(<?php echo $project_task_history_number." ".$tasks_title;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
@@ -83,7 +80,7 @@ else{
 		echo $status;
 		echo "</td></tr>";
 	}
-	echo '</table></div></div>';
+	echo '</table>';
 }
 ?>
 

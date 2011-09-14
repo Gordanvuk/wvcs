@@ -36,14 +36,9 @@ if(fetch_file_change($f)==FALSE){
 	<?php ;
 }
 else{
-	//navigation bar
-	echo "<h5>Project <small> &rarr; </small>Task<small> &rarr; </small>File</h5>";
 	
 	//file change history list/table
 	?>
-	<div class="row">
-	<div class="span3 columns">operations</div>
-	<div class="span13 columns">
 	<h3 class="underline"><?php echo ucfirst($version_title).' of "'.$file_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_change_number." ".$version_title;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
@@ -85,7 +80,7 @@ else{
 		echo $description;
 		echo "</td></tr>";
 	} 
-	echo '</table></div></div>';
+	echo '</table>';
 }
 ?>
 

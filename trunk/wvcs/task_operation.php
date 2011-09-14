@@ -7,6 +7,25 @@ if(isset($_GET['t'])){
 else{
 	$t=0;
 }
+if(isset($_GET['o'])){
+	$o=$_GET['o'];
+}
+
+if(isset($o)){
+	if($o=='delete'){
+		delete_task($p);
+		success('successfully delete the task');
+	}
+	if($o=='create'){
+		
+	}
+	if($o=='move'){
+		
+	}
+	if($o=='update'){
+		
+	}
+}
 if(fetch_task_history($t)==FALSE or fetch_task($t)==FALSE){
 }
 else{

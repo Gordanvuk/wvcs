@@ -19,7 +19,7 @@ $system_version = '1.0';
 $login_by = "email";
 
 //redirect to page after successful login
-$after_login_redirect = "test.php";
+$after_login_redirect = "summary.php";
 
 //cookie valid days
 $cookie_valid = 60;
@@ -28,14 +28,10 @@ $cookie_valid = 60;
 //location strings can be found at http://www.php.net/manual/en/timezones.php
 date_default_timezone_set("Europe/London");
 
-//Terms and Conditions
+//Terms and Conditions (HTML tags needed)
 $terms_conditions = '
-<p><b>CS Project System Terms and Conditions</b></p>
+<p><b>WVCS Terms and Conditions</b></p>
+<p>According to Data Protection Act 1998, your personal data will be well protected and will not be passed to third party.</p>
 ';
 
-//max version history copies (0=unlimited)
-$version_max = 0;
-
-//max storage space (bytes, 0=unlimited)
-$version_space = 0;
 ?>
