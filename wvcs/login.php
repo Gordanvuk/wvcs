@@ -4,7 +4,7 @@ include 'libraries/login.lib.php';
 include 'style/header.inc.php';
 ?>
 <div class="row login">
-<div class="span4 columns">latest news</div>
+<div class="span4 columns">Welcome back!</div>
 <div class="span12 columns">
 <form action="login_check.php" method="post">
 <fieldset><legend>Sign in <?php echo $system_name_short; ?></legend>

@@ -36,13 +36,9 @@ if(fetch_directory_change($d)==FALSE){
 	<?php ;
 }
 else{
-	echo "<h5>Project <small> &rarr; </small>Task<small> &rarr; </small>Directory</h5>";
 	
 	//directory change history list/table
 	?>
-	<div class="row">
-	<div class="span3 columns">operations</div>
-	<div class="span13 columns">
 	<h3><?php echo ucfirst($version_title).' of "'.$directory_name;?>"&nbsp;&nbsp;<small>(<?php echo $directory_change_number." ".$version_title;?>)</small></h3>
 	<script type="text/javascript">
 		$(document).ready(function() 
@@ -82,7 +78,7 @@ else{
 		echo $description;
 		echo "</td></tr>";
 	}
-	echo '</table></div></div>';
+	echo '</table>';
 }
 ?>
 

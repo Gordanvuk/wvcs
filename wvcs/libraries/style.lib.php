@@ -78,7 +78,7 @@ function active($active_string) {
 
 //topbar right align name display(login or logout)
 function right_align(){
-	if (isset($_SESSION ["user"] ["id"])){
+	if (isset($_SESSION ["user"] ["uid"])){
 		echo '<a href="login_check.php?logout=1"><strong>'.$_SESSION ["user"] ["name_nickname"].'</strong>&nbsp;&nbsp;Sign Out</a>';
 	}
 	else{

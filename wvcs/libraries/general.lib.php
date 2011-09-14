@@ -75,12 +75,19 @@ function send_email($to, $subject, $message) {
 
 //deal with system errors
 function error($message) {
-	//********************REDIRECT TO ERROR PAGE AND GET
 	global $error_message;
 	$error_message = $message;
 	global $administrator_email;
 	send_email($administrator_email, 'System Error!', $message);
+	$url="error.php?e=$error_message";
+	header("Location: $url");
 }	
+
+//deal with successful information
+function success($message) {
+	$url="success.php?s=$message";
+	header("Location: $url");
+}
 
 //connect and query database, return 2D array for SELECT query
 function db_query($query) {

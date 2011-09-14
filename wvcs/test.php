@@ -14,5 +14,8 @@ include 'style/header.inc.php';
 </div>
 
 <?php 
+
+echo $_SESSION ["user"] ["uid"];
+
 include 'style/footer.inc.php';
 ?>

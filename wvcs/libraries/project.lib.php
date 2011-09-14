@@ -76,6 +76,18 @@ function fetch_project_task_history ($pid){
 	}
 }
 
+//function of load directory information from database by directory ID
+function fetch_directory($did){
+	$sql='SELECT * FROM directory WHERE did='.$did.' ORDER BY did DESC';
+	$db_array=db_query($sql);
+	if (!array_isset($db_array)){
+		return FALSE;
+	}
+	else{
+		return $db_array;
+	}
+}
+
 //function of load dir_changes information from database by directory ID
 function fetch_directory_change($did){
 	$sql='SELECT * FROM directory_change WHERE did='.$did.' ORDER BY time DESC';
@@ -106,6 +118,18 @@ function fetch_directory_full($did){
 		elseif ($directroy_base_id!=NULL){
 			return $directory_full=fetch_directory_full($directroy_base_id).$directory_name."/";
 		}
+	}
+}
+
+//function of read file information from database by file ID
+function fetch_file($fid){
+	$sql='SELECT * FROM file WHERE fid='.$fid.' ORDER BY fid DESC';
+	$db_array=db_query($sql);
+	if (!array_isset($db_array)){
+		return FALSE;
+	}
+	else{
+		return $db_array;
 	}
 }
 
@@ -349,6 +373,30 @@ function task_status ($tid){
 		$status.='Waiting for predecessor. ';
 	}
 	return $status;
+}
+
+//function of delete project in database by project ID
+function delete_project($pid){
+	$sql='DELETE FROM project WHERE pid='.$pid;
+	$db_array=db_query($sql);
+}
+
+//function of delete task in database by task ID
+function delete_task($tid){
+	$sql='DELETE FROM task WHERE tid='.$tid;
+	$db_array=db_query($sql);
+}
+
+//function of delete file in database by file ID
+function delete_file($fid){
+	$sql='DELETE FROM file WHERE fid='.$fid;
+	$db_array=db_query($sql);
+}
+
+//function of delete directory in database by directory ID
+function delete_directory($did){
+	$sql='DELETE FROM directory WHERE did='.$did;
+	$db_array=db_query($sql);
 }
 
 ?>
