@@ -1,3 +1,10 @@
+demo帐号提醒 没有完整的权限 但足够体验
+
+However, due to the tight time in testing, some 
+
+ref对应
+双空格
+
 跟老师说直到今天才完成代码调试和报告 没休息
 Used almost all of my time, including evening and weekend
 I have tried my best
@@ -12,12 +19,6 @@ as well as reduce time wasting in coordination
 显示group leader
 发邮件告知task assessment
 发邮件申请request task
-新建task时显示新建原则 分配原则
-summary显示project without task
-file_operation.lib.php
-re-design prototype
-画ER图
-组合methodlogy future work conclusion 
 
 上传空间
 
@@ -42,3 +43,51 @@ Acknowledgement
 conclusion 更好的界面 更仔细的平面设计
 
 sql 入注 所有get前加东西防止
+
+
+
+
+
+
+
+
+images/
+files/
+
+libraries/
+general.lib.php
+identify.inc.php
+initial.inc.php
+login_check.lib.php
+login.lib.php
+project.lib.php
+style.lib.php
+
+style/
+common.css
+header.inc.php
+footer.inc.php
+html5.js
+jquery-1.6.2.min.js
+jquery.tablesorter.min.js
+
+/
+config.inc.php
+index.php
+error.php
+success.php
+summary.php
+login.php
+login_check.php
+download.php
+project.php
+project_info.php
+project_operation.php
+task.php
+task_info.php
+task_operation.php
+directory.php
+directory_info.php
+file.php
+file_info.php
+task_search.php

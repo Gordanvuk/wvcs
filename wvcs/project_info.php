@@ -43,6 +43,11 @@ else{
 	//task history list/table
 	?>
 	<h3 class="underline"><?php echo '"'.$project_name;?>"&nbsp;&nbsp;<small>(<?php echo $project_task_history_number." ".$tasks_title;?>)</small></h3>
+	<ul class="tabs">
+	<li><a href="project.php?p=<?php echo $p;?>">Project tasks list</a></li>
+	<li class="active"><a href="project_info.php?p=<?php echo $p;?>">Information</a></li>
+	<li><a href="project_operation.php?p=<?php echo $p;?>">Operations</a></li>
+	</ul>
 	
 	<p><?php echo $db_array[0]['description']; ?></p>	
 		

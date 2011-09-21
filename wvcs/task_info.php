@@ -51,6 +51,11 @@ else{
 	//task related file list/table
 	?>
 	<h3 class="underline"><?php echo '"'.$task_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_number." ".$version_label_file;?>)</small></h3>
+	<ul class="tabs">
+	<li><a href="task.php?t=<?php echo $t;?>">Task file list</a></li>
+	<li class="active"><a href="task_info.php?t=<?php echo $t;?>">Information</a></li>
+	<li><a href="task_operation.php?t=<?php echo $t;?>">Operations</a></li>
+	</ul>
 	<p><?php echo $db_array_task[0]['description']; ?></p>	
 <?php
 }

@@ -13,17 +13,21 @@ if(isset($_GET['o'])){
 
 if(isset($o)){
 	if($o=='delete'){
-		delete_task($p);
+		delete_task($t);
 		success('successfully delete the task');
 	}
-	if($o=='create'){
-		
-	}
-	if($o=='move'){
-		
-	}
-	if($o=='update'){
-		
+	if($o=='createf'){
+		if(isset($_POST['name'])){
+			$uid=$_SESSION ["user"] ["uid"];
+			$name=$_POST['name'];
+			$directory=$_POST['directory'];
+			$description=$_POST['description'];
+			$fid=create_file($uid, $t, $name, $directory, $fid, $description);
+			goto_url("task.php?t=$t");		
+		}
+		else{
+			error('empty task name');
+		}
 	}
 }
 if(fetch_task_history($t)==FALSE or fetch_task($t)==FALSE){
@@ -55,109 +59,65 @@ else{
 	}
 }
 include 'style/header.inc.php';
-?>
-<?php 
-if(fetch_task_file($t)==FALSE){
-	?>
-	<div class="alert-message error">
-        <a class="close" href="<?php echo $after_login_redirect; ?>">×</a>
-        <p><strong>Oops!</strong> File related to this task not exist or have not any changes, please create before use.</p>
-    </div>
-	<?php ;
-}
-else{
 	
 	//task related file list/table
 	?>
-	<h3 class="underline"><?php echo ucfirst($version_label_file).' of "'.$task_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_number." ".$version_label_file;?>)</small></h3>
-	<script type="text/javascript">
-		$(document).ready(function() 
-		    { 
-		        $("table#task_file").tablesorter( {sortList: [[1,0]]} ); 
-		    } 
-		);  
-	</script>
-	<table id="task_file" class="zebra-striped">
-	<thead>
-	<th class="yellow">Ver</th>
-	<th class="red">Location & File Name</th>
-	<th class="blue">Size</th>
-	<th class="green">Operation</th>
-	<th class="green">Time</th>
-	<th class="purple">Description</th>
-	</thead>
-	<?php
-	for ($i = 0; $i < $file_number; $i++) {
-		$fid=$db_array_task_file[$i]['fid'];
-		$version=$db_array_task_file[$i]['version'];
-		$name=$db_array_task_file[$i]['name'];
-		$directory=fetch_directory_full($db_array_task_file[$i]['did']);
-		$size=file_size_convert($db_array_task_file[$i]['size']);
-		$operation=$db_array_task_file[$i]['type'];
-		$time=$db_array_task_file[$i]['time'];
-		$description=$db_array_task_file[$i]['description'];
-		echo '<tr class="td_link" onclick="location.href=\'file.php?f='.$fid.'\'"><td>';
-		echo $version;
-		echo '</td><td class="black">';
-		echo $directory."<strong>".$name."</strong>";
-		echo "</td><td>";
-		echo $size;
-		echo "</td><td>";
-		echo operation_code($operation);
-		echo "</td><td>";
-		echo '['.time_uk($time).']';
-		echo "</td><td>";
-		echo $description;
-		echo "</td></tr>";
-	}
-	echo '</table>';
-	?>
-	
-	<h3 class="underline"><?php echo ucfirst($version_label_directory).' of "'.$task_name;?>"&nbsp;&nbsp;<small>(<?php echo $directory_number." ".$version_label_directory;?>)</small></h3>
-	<script type="text/javascript">
-		$(document).ready(function() 
-		    { 
-		        $("table#task_directory").tablesorter( {sortList: [[1,0],[2,0]]} ); 
-		    } 
-		);  
-	</script>
-	<table id="task_directory" class="zebra-striped">
-	<thead>
-	<th class="yellow">Ver</th>
-	<th class="blue">Base</th>
-	<th class="red">Name</th>
-	<th class="green">Operation</th>
-	<th class="green">Time</th>
-	<th class="purple">Description</th>
-	</thead>
-	<?php
-	for ($i = 0; $i < $directory_number; $i++) {
-		$version=$db_array_task_directory[$i]['version'];
-		$name=$db_array_task_directory[$i]['name'];
-		$did_base=fetch_directory_full($db_array_task_directory[$i]['did_base']);
-		$time=time_uk($db_array_task_directory[$i]['time']);
-		$operation=$db_array_task_directory[$i]['type'];
-		$description=$db_array_task_directory[$i]['description'];
-		echo "<tr><td>";
-		echo $version;
-		echo "</td><td>";
-		echo $did_base;
-		echo '</td><td class="black">';
-		echo "<strong>".$name."</strong>";
-		echo "</td><td>";
-		echo operation_code($operation);
-		echo "</td><td>";
-		echo '['.$time.']';
-		echo "</td><td>";
-		echo $description;
-		echo "</td></tr>";
-	}
-	echo '</table>';
-	?>
-	
-	<?php
-}
-?>
+	<h3 class="underline"><?php echo '"'.$task_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_number." ".$version_label_file;?>)</small></h3>
+	<ul class="tabs">
+	<li><a href="task.php?t=<?php echo $t;?>">Task file list</a></li>
+	<li><a href="task_info.php?t=<?php echo $t;?>">Information</a></li>
+	<li class="active"><a href="task_operation.php?t=<?php echo $t;?>">Operations</a></li>
+	</ul>
+	<div class="row">
+	<div class="span8 columns">
+		<p><a href="task_operation.php?o=delete&t=<?php echo $t;?>">Delete this task</a></p>
+		<p><a href="task_operation.php?o=prioroity&t=<?php echo $t;?>">Set priority of this task</a></p>
+		<p><a href="task_operation.php?o=predecessor&t=<?php echo $t;?>">Set predecessor task</a></p>
+    </div>
+	<div class="span8 columns">
+		<form action="task_operation.php?o=createf&t=<?php echo $t;?>" method="post">
+		<fieldset><legend>Create or upload a new file</legend>
+		<div class="clearfix">
+ 			<label>file name</label>
+			<div class="input">
+				<input class="xlarge" id="name" name="name" size="30" type="text" />
+			</div>
+		</div>
+		
+		<div class="clearfix">
+			<label>directory</label>
+			<div class="input">
+				<input class="xlarge" id="directory" name="directory" size="30" type="text" />
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<label>choose file</label>
+			<div class="input">
+				<input class="input-file" id="fileInput" name="fileInput" type="file">
+            </div>
+		</div>
+
+		<div class="clearfix">
+			<label>description</label>
+			<div class="input">
+              <textarea class="xlarge" id="description" name="description"></textarea>
+              <span class="help-block">
+              </span>
+            </div>
+		</div>
+		
+		<div class="actions">
+		<button type="submit" class="btn large primary">Create</button>
+		&nbsp;
+		<button type="reset" class="btn large" onclick="location.href='summary.php'">Cancel</button>
+		</div>
+		</fieldset>
+		</form>
+		
+		
+		</div>
+	</div>
 
 
 <?php

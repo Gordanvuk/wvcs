@@ -1,5 +1,5 @@
 <?php 
-//function of general library, include database operation, error handling, email sending, calculating
+//function of general library
 
 //connect to database as read-only account
 function connectdb_read()
@@ -40,7 +40,7 @@ function connectdb_rw()
 }
 
 //format inputed data for SQL command use(), if $lower_case==1 convert to lower case
-function format_sql($data, $lower_case){
+function format_sql($data, $lower_case=0){
 	if (!get_magic_quotes_gpc()){
 		$data=addslashes($data);
 	}
@@ -79,13 +79,16 @@ function error($message) {
 	$error_message = $message;
 	global $administrator_email;
 	send_email($administrator_email, 'System Error!', $message);
-	$url="error.php?e=$error_message";
-	header("Location: $url");
+	goto_url("error.php?e=$error_message");
 }	
 
 //deal with successful information
 function success($message) {
-	$url="success.php?s=$message";
+	goto_url("success.php?s=$message");
+}
+
+//page redirector
+function goto_url($url) {
 	header("Location: $url");
 }
 

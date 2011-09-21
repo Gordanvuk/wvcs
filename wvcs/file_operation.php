@@ -41,11 +41,6 @@ else{
 	//file change history list/table
 	?>
 	<h3 class="underline"><?php echo '"'.$file_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_change_number." ".$version_title;?>)</small></h3>
-	<ul class="tabs">
-	<li><a href="file.php?f=<?php echo $f;?>">File versions list</a></li>
-	<li class="active"><a href="file_info.php?f=<?php echo $f;?>">Information</a></li>
-	<li><a href="task_operation.php?t=<?php echo '1';?>">Operations</a></li>
-	</ul>
 	<p><?php echo $db_array_file[0]['description'];?></p>
 	
 	<?php
