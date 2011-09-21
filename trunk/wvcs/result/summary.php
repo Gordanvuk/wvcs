@@ -118,7 +118,7 @@
 	
 		
 	<!-- 3. Tasks Waiting -->
-		<h3 class="underline">Waiting&nbsp;&nbsp;<small>(1 task)</small></h3>
+		<h3 class="underline">Waiting&nbsp;&nbsp;<small>(2 task)</small></h3>
 	<!-- tablesorter loader -->
 	<script type="text/javascript">
 		$(document).ready(function() 
@@ -173,7 +173,7 @@
 	</div>
 	<div class="span8 columns">
 	<!-- 5. Projects Leading -->
-		<h3 class="underline">Leading project&nbsp;&nbsp;<small>(1 task)</small></h3>
+		<h3 class="underline">Leading project&nbsp;&nbsp;<small>(2 projects)</small></h3>
 	<!-- tablesorter loader -->
 	<script type="text/javascript">
 		$(document).ready(function() 
