@@ -29,7 +29,7 @@ include 'style/header.inc.php';
 <?php 
 if(fetch_file_change($f)==FALSE){
 	?>
-	<div class="alert-message error">
+	<div class="alert-message info">
         <a class="close" href="<?php echo $after_login_redirect; ?>">×</a>
         <p><strong>Oops!</strong> File not exist or have not any changes, please create before use.</p>
     </div>
@@ -40,6 +40,11 @@ else{
 	//file change history list/table
 	?>
 	<h3 class="underline"><?php echo ucfirst($version_title).' of "'.$file_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_change_number." ".$version_title;?>)</small></h3>
+	<ul class="tabs">
+	<li class="active"><a href="file.php?f=<?php echo $f;?>">File versions list</a></li>
+	<li><a href="file_info.php?f=<?php echo $f;?>">Information</a></li>
+	<li><a href="task_operation.php?t=<?php echo '1';?>">Operations</a></li>
+	</ul>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 

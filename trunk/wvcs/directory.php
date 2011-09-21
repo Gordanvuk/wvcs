@@ -29,7 +29,7 @@ include 'style/header.inc.php';
 <?php 
 if(fetch_directory_change($d)==FALSE){
 	?>
-	<div class="alert-message error">
+	<div class="alert-message info">
         <a class="close" href="<?php echo $after_login_redirect; ?>">×</a>
         <p><strong>Oops!</strong> Directory not exist or have not any changes, please create before use.</p>
     </div>

@@ -7,6 +7,15 @@ if(isset($_GET['p'])){
 else{
 	$p=0;
 }
+if(isset($_GET['private'])){
+	$private=$_GET['private'];
+	if (isset($_SESSION['user']['uid'])){
+		goto_url($after_login_redirect);
+	}
+}
+else{
+	$private=0;
+}
 if(fetch_project($p)==FALSE){
 }
 else{
@@ -33,7 +42,7 @@ include 'style/header.inc.php';
 <?php 
 if(fetch_project($p)==FALSE){
 	?>
-	<div class="alert-message error">
+	<div class="alert-message info">
         <a class="close" href="<?php echo $after_login_redirect; ?>">×</a>
         <p><strong>Oops!</strong> Project not exist or have not any changes, please create before use.</p>
     </div>
@@ -43,6 +52,11 @@ else{
 	//task history list/table
 	?>
 	<h3 class="underline"><?php echo ucfirst($tasks_title).' of "'.$project_name;?>"&nbsp;&nbsp;<small>(<?php echo $project_task_history_number." ".$tasks_title;?>)</small></h3>
+	<ul class="tabs">
+	<li class="active"><a href="project.php?p=<?php echo $p;?>">Project tasks list</a></li>
+	<li><a href="project_info.php?p=<?php echo $p;?>">Information</a></li>
+	<li><a href="project_operation.php?p=<?php echo $p;?>">Operations</a></li>
+	</ul>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 

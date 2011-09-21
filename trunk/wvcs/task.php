@@ -40,7 +40,7 @@ include 'style/header.inc.php';
 <?php 
 if(fetch_task_file($t)==FALSE){
 	?>
-	<div class="alert-message error">
+	<div class="alert-message info">
         <a class="close" href="<?php echo $after_login_redirect; ?>">×</a>
         <p><strong>Oops!</strong> File related to this task not exist or have not any changes, please create before use.</p>
     </div>
@@ -51,6 +51,11 @@ else{
 	//task related file list/table
 	?>
 	<h3 class="underline"><?php echo ucfirst($version_label_file).' of "'.$task_name;?>"&nbsp;&nbsp;<small>(<?php echo $file_number." ".$version_label_file;?>)</small></h3>
+	<ul class="tabs">
+	<li class="active"><a href="task.php?t=<?php echo $t;?>">Task file list</a></li>
+	<li><a href="task_info.php?t=<?php echo $t;?>">Information</a></li>
+	<li><a href="task_operation.php?t=<?php echo $t;?>">Operations</a></li>
+	</ul>
 	<script type="text/javascript">
 		$(document).ready(function() 
 		    { 

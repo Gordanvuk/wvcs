@@ -399,4 +399,28 @@ function delete_directory($did){
 	$db_array=db_query($sql);
 }
 
+//function of create task in database
+function create_task($pid, $uid, $name, $priority, $start, $end, $description){
+	$sql="INSERT INTO task (pid, uid, name, priority, start, end, description) VALUES ($pid, $uid, '$name', $priority, '$start', '$end', '$description')";
+	$db_array=db_query($sql);
+	$tid=mysql_insert_id();
+	$time=time_db(time_this());
+	$ip=$_SERVER['REMOTE_ADDR'];
+	$sql="INSERT INTO task_history (tid, uid, version, percent, time, ip, description) VALUES ($tid, $uid, 1, 0, '$time', '$description')";
+	$db_array=db_query($sql);
+	return $tid;
+}
+
+//function of create task in database.
+function create_file($uid, $t, $name, $directory, $fid, $description){
+	$sql="INSERT INTO file (tid, description) VALUES ($t, '$description')";
+	$db_array=db_query($sql);
+	$fid=mysql_insert_id();
+	$time=time_db(time_this());
+	$ip=$_SERVER['REMOTE_ADDR'];
+	$sql="INSERT INTO file_change (tid, uid, version, time, ip, description) VALUES ($t, $uid, 1, '$time', '$ip', '$description')";
+	$db_array=db_query($sql);
+	return $fid;
+}
+
 ?>

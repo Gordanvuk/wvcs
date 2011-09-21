@@ -15,3 +15,4 @@ elseif (!empty($_COOKIE['id'])){
 elseif (file_name()!="login.php") {
 	header("Location: login.php");
 }
+?>
