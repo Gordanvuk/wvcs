@@ -188,12 +188,12 @@
 	<th class="green">Due</th>
 	<th class="purple">Priority</th>
 	</thead>
-		<tr class="td_link" onclick="location.href='project.php?p=1'">
+		<tr class="td_link" onclick="location.href='project.php?p=2'">
 		<td class="black">Coding</td>
 		<td>[21 Sep 2011]</td>
 		<td>1</td>
 		</tr>
-		<tr class="td_link" onclick="location.href='project.php?p=2'">
+		<tr class="td_link" onclick="location.href='project.php?p=1'">
 		<td class="black">Documentation</td>
 		<td>[15 Sep 2011]</td>
 		<td>2</td>
