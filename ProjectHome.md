@@ -1,0 +1,1 @@
+A web-based version control system run on PHP and based on "task allocation" mechanism. Better for small groups doing projects, and for individual users managing their private projects.
